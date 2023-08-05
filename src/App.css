@@ -1,6 +1,7 @@
-.root {
+:root {
 	/* BUSCAR COLORES DE INSTAGRAM */
 	--primary-font: #555;
+	--lighter-grey: #ddd;
 }
 body {
 	margin: 0;
