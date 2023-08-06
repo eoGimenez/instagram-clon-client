@@ -5,6 +5,15 @@ export default function PostCard({ post }) {
 	return (
 		<section className='section--post--card'>
 			<div className='post--card--container'>
+				<div className='post--card--header'>
+					<img
+						src={post.author.avatar}
+						alt={`The avatar of the user: ${post.author.username}`}
+						className='post--card--author--avatar'
+					/>
+					<h3 className='post--card--author'>{post.author.username}</h3>
+					<button className='post--card--header--btn--delete'>Delete</button>
+				</div>
 				<div className='image--container'>
 					<img
 						src={post.image_url}
@@ -16,11 +25,12 @@ export default function PostCard({ post }) {
 					<h2 className='card--caption'>{post.caption}</h2>
 					<div className='post--container--comments--container'>
 						{post.comments &&
-							post.comments.map((comment) => (
-								<PostComment comment={comment} key={comment.id} />
-							))}
+							post.comments
+								.map((comment) => (
+									<PostComment comment={comment} key={comment.id} />
+								))
+								.reverse()}
 					</div>
-					<h3 className='card--author'>{post.author.username}</h3>
 				</div>
 			</div>
 		</section>
