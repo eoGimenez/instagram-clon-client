@@ -5,7 +5,6 @@ export function usePost() {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const API_URL = 'http://127.0.0.1:8000';
-
 	const getPosts = async () => {
 		let isCancelled = false;
 		setIsLoading(true);

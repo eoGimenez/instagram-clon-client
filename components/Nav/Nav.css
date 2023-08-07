@@ -1,0 +1,34 @@
+.hader--nav--container {
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid var(--primary-font);
+	margin-bottom: 2rem;
+}
+
+.nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.nav--logo {
+	max-width: 12rem;
+	margin-left: 1rem;
+}
+
+.nav--buttons--container {
+}
+
+.btn--nav {
+	margin-right: 1rem;
+	background-color: white;
+	border: none;
+	font-size: 1.2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.headers--auth--modals {
+	position: relative;
+}
