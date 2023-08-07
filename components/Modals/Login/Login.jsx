@@ -1,11 +1,16 @@
+import { useAuth } from '../../../hooks/useAuth';
 import { useField } from '../../../hooks/useField';
-import { useSwitch } from '../../../hooks/useSwitch';
 import './Login.css';
 
+
 export default function Login({ isTrue }) {
-	const { switching } = useSwitch();
 	const username = useField({ type: 'text', field: '' });
 	const password = useField({ type: 'password', field: '' });
+
+	const { handleLogin } = useAuth({
+		username: username.value,
+		password: password.value,
+	});
 
 	return (
 		<>
@@ -15,7 +20,7 @@ export default function Login({ isTrue }) {
 					alt='Instagram logo'
 					className='modal--logo'
 				/>
-				<form onSubmit={null} className='modal--login--form'>
+				<form onSubmit={handleLogin} className='modal--login--form'>
 					<fieldset>
 						<input {...username} placeholder='Username' required />
 					</fieldset>
