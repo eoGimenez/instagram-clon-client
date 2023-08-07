@@ -9,10 +9,10 @@ export function useAuth({ password, username }) {
 
 	const handleLogin = (e) => {
 		e.preventDefault();
-		let scopes = 'me,post';
+		let scopes = ['me', 'post'];
 
 		let logData = new FormData();
-		logData.append('ese', scopes);
+		logData.append('scope', scopes);
 		logData.append('username', username);
 		logData.append('password', password);
 
