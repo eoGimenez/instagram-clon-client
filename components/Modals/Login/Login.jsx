@@ -2,7 +2,6 @@ import { useAuth } from '../../../hooks/useAuth';
 import { useField } from '../../../hooks/useField';
 import './Login.css';
 
-
 export default function Login({ isTrue }) {
 	const username = useField({ type: 'text', field: '' });
 	const password = useField({ type: 'password', field: '' });

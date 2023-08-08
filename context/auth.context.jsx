@@ -1,60 +1,30 @@
-import { createContext, useState, useEffect } from 'react';
-import AuthService from '../services/auth.service';
+import { createContext, useEffect } from 'react';
+import { useVerify } from '../hooks/useAuth';
 
 const AuthContext = createContext();
 
 function AuthProviderWrapper({ children }) {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [isLoading, setIsLoading] = useState(true);
-	const [user, setUser] = useState(null);
-	const authService = new AuthService();
+	const { user, isLoggedIn, isLoading, verifyUser } = useVerify();
 
 	const storeToken = (token) => {
 		localStorage.setItem('authToken', token);
-	};
-
-	const authenticateUser = () => {
-		setIsLoading(true);
-		const storedToken = localStorage.getItem('authToken');
-
-		if (storedToken) {
-			authService
-				.verify()
-				.then((response) => {
-					setIsLoggedIn(true);
-					setUser(response);
-					setTimeout(() => {
-						setIsLoading(false);
-					}, 1000);
-				})
-				.catch((error) => {
-					setIsLoggedIn(false);
-					setUser(null);
-					setInterval(() => {
-						setIsLoading(false);
-					}, 1000);
-					return { message: error };
-				});
-		} else {
-			setIsLoggedIn(false);
-			setUser(null);
-			setInterval(() => {
-				setIsLoading(false);
-			}, 1000);
-		}
 	};
 
 	const removeToken = () => {
 		localStorage.removeItem('authToken');
 	};
 
+	const verify = () => {
+		verifyUser();
+	};
+
 	const logOutUser = () => {
 		removeToken();
-		authenticateUser();
+		verify();
 	};
 
 	useEffect(() => {
-		authenticateUser();
+		verify();
 	}, []);
 
 	return (
@@ -64,7 +34,7 @@ function AuthProviderWrapper({ children }) {
 				isLoading,
 				user,
 				storeToken,
-				authenticateUser,
+				verify,
 				logOutUser,
 			}}
 		>

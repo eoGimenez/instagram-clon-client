@@ -1,11 +1,62 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../context/auth.context';
 import { useSwitch } from './useSwitch';
 
+const API_URL = `${import.meta.env.VITE_API_URL}`;
+
+export function useVerify() {
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
+	const [user, setUser] = useState(null);
+
+	const verifyUser = () => {
+		setIsLoading(true);
+		const storedToken = localStorage.getItem('authToken');
+		const options = {
+			method: 'GET',
+			headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${storedToken}` },
+		};
+		if (storedToken) {
+			fetch(`${API_URL}/users/me/`, options)
+				.then((response) => {
+					if (response.ok) {
+						return response.json();
+					}
+					throw response;
+				})
+				.then((data) => {
+					setIsLoggedIn(true);
+					setUser(data);
+					setTimeout(() => {
+						setIsLoading(false);
+					}, 1000);
+				})
+				.catch((error) => {
+					setIsLoggedIn(false);
+					setUser(null);
+					setInterval(() => {
+						setIsLoading(false);
+					}, 1000);
+					return { message: error };
+				});
+		} else {
+			setIsLoggedIn(false);
+			setUser(null);
+			setInterval(() => {
+				setIsLoading(false);
+			}, 1000);
+		}
+	};
+	return {
+		user,
+		isLoggedIn,
+		isLoading,
+		verifyUser,
+	};
+}
+
 export function useAuth({ password, username }) {
-	const { authenticateUser, storeToken } = useContext(AuthContext);
-	const API_URL = `${import.meta.env.VITE_API_URL}`;
-	const { switchingLogin } = useSwitch();
+	const { verify, storeToken } = useContext(AuthContext);
 
 	const handleLogin = (e) => {
 		e.preventDefault();
@@ -28,10 +79,8 @@ export function useAuth({ password, username }) {
 				throw response;
 			})
 			.then((data) => {
-				console.log(data);
 				storeToken(data.access_token);
-				authenticateUser();
-				switchingLogin();
+				verify();
 			})
 			.catch((err) => console.log(err));
 	};
