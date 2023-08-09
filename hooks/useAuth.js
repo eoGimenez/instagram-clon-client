@@ -1,6 +1,5 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/auth.context';
-import { useSwitch } from './useSwitch';
 
 const API_URL = `${import.meta.env.VITE_API_URL}`;
 
@@ -86,4 +85,76 @@ export function useAuth({ password, username }) {
 	};
 
 	return { handleLogin };
+}
+
+export function useSignup({ username, password, rePassword, email }) {
+	const [userCreated, setUserCreated] = useState();
+	const [isLoading, setIsLoading] = useState(true);
+	const { verify, storeToken } = useContext(AuthContext);
+
+	const signUp = (e) => {
+		e.preventDefault();
+		setIsLoading(true);
+		const json_string = JSON.stringify({
+			username: username,
+			password: password,
+			re_password: rePassword,
+			email: email,
+		});
+
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: json_string,
+		};
+
+		fetch(`${API_URL}/signup`, requestOptions)
+			.then((result) => {
+				if (result.ok) {
+					return result.json();
+				}
+				throw result;
+			})
+			.then((data) => {
+				setUserCreated(data);
+				setIsLoading(false);
+			})
+			.catch((err) => console.error(err));
+	};
+
+	useEffect(() => {
+		let isCancelled = false;
+		if (userCreated) {
+			let scopes = ['me', 'post'];
+
+			let logData = new FormData();
+			logData.append('scope', scopes);
+			logData.append('username', username);
+			logData.append('password', password);
+
+			const requestOptions = {
+				method: 'POST',
+				body: logData,
+			};
+			fetch(`${API_URL}/token`, requestOptions)
+				.then((response) => {
+					if (response.ok) {
+						return response.json();
+					}
+					throw response;
+				})
+				.then((data) => {
+					if (!isCancelled) {
+						storeToken(data.access_token);
+						verify();
+					}
+				})
+				.catch((err) => console.log(err));
+		}
+		return () => {
+			isCancelled = true;
+		};
+	}, [userCreated]);
+
+	return { signUp };
 }

@@ -18,17 +18,20 @@ export default function Nav() {
 					className='nav--logo'
 				/>
 				<div className='nav--buttons--container'>
-					{!isLoggedIn && <>
-						<button className='btn--nav' onClick={switchingLogin}>
-							Login
+					{isLoggedIn ? (
+						<button className='btn--nav' onClick={logOutUser}>
+							Logout
 						</button>
-						<button className='btn--nav' onClick={switchingSignup}>
-							Signup
-						</button>
-					</>}
-					{isLoggedIn && <button className='btn--nav' onClick={logOutUser}>
-						Logout
-					</button>}
+					) : (
+						<>
+							<button className='btn--nav' onClick={switchingLogin}>
+								Login
+							</button>
+							<button className='btn--nav' onClick={switchingSignup}>
+								Signup
+							</button>
+						</>
+					)}
 				</div>
 			</nav>
 			<div className='headers--auth--modals'>
