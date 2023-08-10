@@ -2,10 +2,14 @@
 	/* BUSCAR COLORES DE INSTAGRAM */
 	--primary-font: #555;
 	--lighter-grey: #ddd;
+
+	--drag--border: #97bef4;
+	--drag--back: #f6f8fb;
 }
 body {
 	margin: 0;
 	padding: 0;
+	position: relative;
 }
 html {
 	font-size: 62.5%;
@@ -22,6 +26,7 @@ html {
 	margin-inline: 1rem;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 4rem;
 }
 
 .probando {

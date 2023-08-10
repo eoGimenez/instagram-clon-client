@@ -1,0 +1,46 @@
+.footer--user--false {
+	border-top: 1px solid var(--primary-font);
+	position: fixed;
+	width: 100vw;
+	bottom: -4em;
+	transform: translate(0, -50%);
+	z-index: 999;
+	background-color: white;
+	/* transition: all 0.3s; */
+}
+.footer--user--true {
+	border-top: 1px solid var(--primary-font);
+	position: fixed;
+	width: 100vw;
+	bottom: -4em;
+	transform: translate(0, -50%);
+	z-index: 999;
+	background-color: white;
+
+	/* transition: all 0.3s; */
+}
+.footer--user--container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	z-index: 999;
+	background-color: white;
+	transition: all 1s;
+}
+
+.footer--user--container p {
+	align-self: center;
+}
+
+.footer--user--avatar {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 999px;
+	margin: 1rem;
+}
+
+ion-icon {
+	font-size: 2.5rem;
+	font-weight: 700;
+}

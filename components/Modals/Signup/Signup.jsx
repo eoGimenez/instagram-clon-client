@@ -3,7 +3,7 @@ import { useField } from '../../../hooks/useField';
 
 import './SIgnup.css';
 
-export default function Signup({ isTrueSign, isLoggedIn }) {
+export default function Signup({ isTrueSign }) {
 	const username = useField({ type: 'text', field: '' });
 	const email = useField({ type: 'text', field: '' });
 	const password = useField({ type: 'password', field: '' });

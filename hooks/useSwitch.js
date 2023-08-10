@@ -4,7 +4,7 @@ export function useSwitch() {
 	const [isTrue, setIsTrue] = useState(false);
 	const [isTrueSign, setIsTrueSign] = useState(false);
 
-	const switchingLogin = () => {
+	const switchingGeneric = () => {
 		setIsTrue(!isTrue);
 		setIsTrueSign(false);
 	};
@@ -13,5 +13,5 @@ export function useSwitch() {
 		setIsTrue(false);
 	};
 
-	return { isTrue, isTrueSign, switchingSignup, switchingLogin };
+	return { isTrue, isTrueSign, switchingSignup, switchingGeneric };
 }

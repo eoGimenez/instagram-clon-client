@@ -1,0 +1,22 @@
+/* .modal--new--post--false {
+	z-index: -10;
+} */
+.modal--new--post {
+	background-color: white;
+	position: absolute;
+	top: -900%;
+	left: 10%;
+	width: 80vw;
+}
+.modal--new--post--form {
+	padding: 3rem 0;
+}
+.modal--new--post--form fieldset {
+	border: none;
+}
+
+.modal--new--post--form input {
+	resize: none;
+	border: none;
+	border-bottom: 1px solid var(--lighter-grey);
+}

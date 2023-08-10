@@ -25,8 +25,7 @@ export function usePost() {
 				}
 			})
 			.catch((err) => {
-				console.log(err);
-				// alert(err);
+				console.error(err);
 			});
 		return () => {
 			isCancelled = true;

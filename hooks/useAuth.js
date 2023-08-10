@@ -89,12 +89,11 @@ export function useAuth({ password, username }) {
 
 export function useSignup({ username, password, rePassword, email }) {
 	const [userCreated, setUserCreated] = useState();
-	const [isLoading, setIsLoading] = useState(true);
 	const { verify, storeToken } = useContext(AuthContext);
 
 	const signUp = (e) => {
 		e.preventDefault();
-		setIsLoading(true);
+
 		const json_string = JSON.stringify({
 			username: username,
 			password: password,
@@ -117,7 +116,6 @@ export function useSignup({ username, password, rePassword, email }) {
 			})
 			.then((data) => {
 				setUserCreated(data);
-				setIsLoading(false);
 			})
 			.catch((err) => console.error(err));
 	};
