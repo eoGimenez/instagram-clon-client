@@ -28,39 +28,3 @@
 	max-width: 35rem;
 	max-height: 30rem;
 }
-
-.copy--path--container {
-	display: flex;
-	justify-content: center;
-	border: 1px solid var(--gray-font);
-	border-radius: 8px;
-	padding: 0.1rem;
-}
-
-.btn--copy--path {
-	display: inline-block;
-	padding: 1rem 1.5rem;
-	background-color: var(--buttom--back);
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-	font-size: 1.2rem;
-	font-weight: 500;
-
-	transition: 0.3s;
-}
-
-.btn--copy--path:hover,
-.btn--copy--path:active {
-	background-color: var(--drag--border);
-	color: var(--darker-font);
-}
-
-.path--parraf {
-	width: 25ch;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	align-self: center;
-	margin: 0;
-}

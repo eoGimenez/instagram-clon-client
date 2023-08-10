@@ -33,7 +33,6 @@ export function useFile() {
 			headers: new Headers({
 				Authorization: `Bearer ${storedToken}`,
 			}),
-			// { 'Content-Type': 'application/json', Authorization: `Bearer ${storedToken}` },
 			body: uploadData,
 		};
 
