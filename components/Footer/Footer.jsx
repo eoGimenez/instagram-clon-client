@@ -10,7 +10,7 @@ export default function Footer() {
 	
 	return (
 		<footer className={`footer--user--${isTrue}`}>
-			{isTrue && <NewPost />}
+			{isTrue && <NewPost user={user} />}
 			{isLoggedIn && (
 				<div className='footer--user--container'>
 					<p
