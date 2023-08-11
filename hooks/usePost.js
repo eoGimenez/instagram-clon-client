@@ -63,7 +63,7 @@ export function usePost() {
 			.then((data) => {
 				if (!isCancelled) {
 					getPosts();
-					globalThis.location.reload();
+					location.reload();
 				}
 			})
 			.catch((err) => console.error(err));
