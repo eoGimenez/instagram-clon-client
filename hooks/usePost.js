@@ -35,6 +35,7 @@ export function usePost() {
 	};
 
 	const createPost = async ({ userId, caption, image }) => {
+		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
 
 		const json_string = JSON.stringify({
@@ -60,9 +61,16 @@ export function usePost() {
 				throw response;
 			})
 			.then((data) => {
-				getPosts();
+				if (!isCancelled) {
+					getPosts();
+					globalThis.location.reload();
+				}
 			})
 			.catch((err) => console.error(err));
+
+		return () => {
+			isCancelled = true;
+		};
 	};
 
 	useEffect(() => {
