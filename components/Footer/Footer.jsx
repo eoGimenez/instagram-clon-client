@@ -9,7 +9,7 @@ export default function Footer() {
 	const { isTrue, switchingGeneric } = useSwitch();
 	
 	return (
-		<footer className={`footer--user--${isTrue}`}>
+		<footer className={`footer--user`}>
 			{isTrue && <NewPost user={user} />}
 			{isLoggedIn && (
 				<div className='footer--user--container'>

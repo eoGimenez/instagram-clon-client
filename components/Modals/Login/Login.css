@@ -1,4 +1,4 @@
-.modal--login--container {
+.modal--login--container--false {
 	position: absolute;
 	background-color: #fff;
 	top: 20rem;
@@ -8,7 +8,7 @@
 }
 
 .modal--login--container--true {
-	position: absolute;
+	position: fixed;
 	background-color: #fff;
 	top: 20rem;
 	left: 50%;

@@ -3,7 +3,7 @@
 } */
 .modal--new--post {
 	background-color: white;
-	position: absolute;
+	position: fixed;
 	top: -900%;
 	left: 10%;
 	width: 80vw;

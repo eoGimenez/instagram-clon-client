@@ -1,4 +1,4 @@
-.modal--signup--container {
+.modal--signup--container--false {
 	position: absolute;
 	background-color: #fff;
 	top: 20rem;
@@ -8,7 +8,7 @@
 }
 
 .modal--signup--container--true {
-	position: absolute;
+	position: fixed;
 	background-color: #fff;
 	top: 20rem;
 	left: 50%;
