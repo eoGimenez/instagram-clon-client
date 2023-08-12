@@ -3,10 +3,13 @@ import PostComment from '../PostComment/PostComment';
 import './PostCard.css';
 import { AuthContext } from '../../../context/auth.context';
 import { useDelete } from '../../../hooks/useDelete';
+import { useSwitch } from '../../../hooks/useSwitch';
+import NewComment from '../NewComment/NewComment';
 
 export default function PostCard({ post }) {
 	const { user } = useContext(AuthContext);
 	const { deletePost } = useDelete();
+	const { isTrue, switchingGeneric } = useSwitch();
 
 	const handleDelete = () => {
 		deletePost({ postId: post.id });
@@ -38,12 +41,25 @@ export default function PostCard({ post }) {
 				<div className='card--container'>
 					<h2 className='card--caption'>{post.caption}</h2>
 					<div className='post--container--comments--container'>
-						{post.comments &&
-							post.comments
-								.map((comment) => (
-									<PostComment comment={comment} key={comment.id} />
-								))
-								.reverse()}
+						{!isTrue && post.comments.length === 0 ? (
+							<p>{`Aun no hay comentarios`}</p>
+						) : (
+							!isTrue && (
+								<p
+									onClick={switchingGeneric}
+								>{`Ver los ${post.comments.length} commentarios`}</p>
+							)
+						)}
+						{isTrue
+							? post.comments
+									.map((comment) => (
+										<PostComment comment={comment} key={comment.id} />
+									))
+									.reverse()
+							: null}
+						{(isTrue && user) || (post.comments.length === 0 && user) ? (
+							<NewComment username={user.username} postId={post.id} />
+						) : null}
 					</div>
 				</div>
 			</div>

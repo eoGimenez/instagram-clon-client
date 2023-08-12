@@ -1,0 +1,21 @@
+.new--comment--form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.new--comment--form fieldset {
+	border: none;
+}
+
+.new--comment--form input {
+	max-width: 18ch;
+	border: none;
+	border-bottom: 1px solid var(--primary-font);
+}
+
+.new--comment--form button {
+	border: none;
+	background-color: #fff;
+}

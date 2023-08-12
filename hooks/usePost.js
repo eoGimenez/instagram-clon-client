@@ -73,7 +73,6 @@ export function usePost() {
 	};
 
 	useEffect(() => {
-		console.log('?');
 		getPosts();
 	}, []);
 

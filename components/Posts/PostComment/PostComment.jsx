@@ -6,7 +6,6 @@ export default function PostComment({ comment }) {
 			<p>
 				<span className='comment--author'>{comment.username}</span>: {comment.text}
 			</p>
-			{/* <p>{comment.timestamp}</p> */}
 		</div>
 	);
 }
