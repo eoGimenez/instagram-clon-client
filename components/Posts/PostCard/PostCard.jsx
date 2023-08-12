@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import PostComment from '../PostComment/PostComment';
 import './PostCard.css';
 import { AuthContext } from '../../../context/auth.context';
-import { usePost } from '../../../hooks/usePost';
+import { useDelete } from '../../../hooks/useDelete';
 
 export default function PostCard({ post }) {
 	const { user } = useContext(AuthContext);
-	const { deletePost } = usePost();
+	const { deletePost } = useDelete();
 
 	const handleDelete = () => {
 		deletePost({ postId: post.id });
