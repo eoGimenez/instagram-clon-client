@@ -29,7 +29,7 @@
 	letter-spacing: -0.04rem;
 }
 .post--container--comments--container {
-	border: 1px solid var(--lighter-grey);
+	border-top: 1px solid var(--lighter-grey);
 	padding: 0 1rem;
 }
 .post--card--header {

@@ -11,7 +11,6 @@ export default function NewPost({ user }) {
 	const { image, isLoadingImg, status, onChange, handleDrag, handleDrop } = useFile();
 	const { createPost } = usePost();
 
-	console.log(user);
 	const handleNewPost = (e) => {
 		e.preventDefault();
 		createPost({

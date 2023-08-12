@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
+const API_URL = 'http://127.0.0.1:8000';
+
 export function usePost() {
 	const [posts, setPosts] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-
-	const API_URL = 'http://127.0.0.1:8000';
+	const [status, setStatus] = useState();
 
 	const getPosts = async () => {
 		let isCancelled = false;
@@ -73,9 +74,35 @@ export function usePost() {
 		};
 	};
 
+	const deletePost = async ({ postId }) => {
+		const storedToken = localStorage.getItem('authToken');
+		const requestOptions = {
+			method: 'DELETE',
+			headers: new Headers({
+				Authorization: `Bearer ${storedToken}`,
+			}),
+		};
+
+		fetch(`${API_URL}/post/${postId}`, requestOptions)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw response;
+			})
+			.then((data) => {
+				location.reload();
+			})
+			.catch((err) => {
+				setStatus(err);
+				console.error(err);
+			});
+	};
+
 	useEffect(() => {
+		console.log('?');
 		getPosts();
 	}, []);
 
-	return { posts, isLoading, createPost };
+	return { posts, isLoading, status, createPost, deletePost };
 }

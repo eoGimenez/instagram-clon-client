@@ -1,7 +1,17 @@
+import { useContext } from 'react';
 import PostComment from '../PostComment/PostComment';
 import './PostCard.css';
+import { AuthContext } from '../../../context/auth.context';
+import { usePost } from '../../../hooks/usePost';
 
 export default function PostCard({ post }) {
+	const { user } = useContext(AuthContext);
+	const { deletePost } = usePost();
+
+	const handleDelete = () => {
+		deletePost({ postId: post.id });
+	};
+
 	return (
 		<section className='section--post--card'>
 			<div className='post--card--container'>
@@ -12,7 +22,11 @@ export default function PostCard({ post }) {
 						className='post--card--author--avatar'
 					/>
 					<h3 className='post--card--author'>{post.author.username}</h3>
-					<button className='post--card--header--btn--delete'>Delete</button>
+					{user && user.id === post.author.id ? (
+						<button className='post--card--header--btn--delete' onClick={handleDelete}>
+							Delete
+						</button>
+					) : null}
 				</div>
 				<div className='image--container'>
 					<img
