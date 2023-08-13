@@ -2,14 +2,14 @@ import { useComment } from '../../../hooks/useComment';
 import { useField } from '../../../hooks/useField';
 import './NewComment.css';
 
-export default function NewComment({ username, postId }) {
+export default function NewComment({ user, postId }) {
 	const text = useField({ type: 'text', field: '' });
 	const { createComment } = useComment();
-
 	const handleComment = (e) => {
 		e.preventDefault();
 		createComment({
-			username: username,
+			username: user.username,
+			authorId: user.id,
 			text: text.value,
 			postId: postId,
 		});

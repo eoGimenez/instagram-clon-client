@@ -42,7 +42,7 @@ export default function PostCard({ post }) {
 					<h2 className='card--caption'>{post.caption}</h2>
 					<div className='post--container--comments--container'>
 						{!isTrue && post.comments.length === 0 ? (
-							<p>{`Aun no hay comentarios`}</p>
+							<p onClick={switchingGeneric}>{`Aun no hay comentarios`}</p>
 						) : (
 							!isTrue && (
 								<p
@@ -59,7 +59,7 @@ export default function PostCard({ post }) {
 										.reverse()
 								: null}
 							{(isTrue && user) || (post.comments.length === 0 && user) ? (
-								<NewComment username={user.username} postId={post.id} />
+								<NewComment user={user} postId={post.id} />
 							) : null}
 						</div>
 					</div>

@@ -1,7 +1,7 @@
 const API_URL = 'http://127.0.0.1:8000';
 
 export function useComment() {
-	const createComment = async ({ username, text, postId }) => {
+	const createComment = async ({ username, text, postId, authorId }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
 
@@ -9,6 +9,7 @@ export function useComment() {
 			username: username,
 			text: text,
 			post_id: postId,
+			author_id: authorId,
 		});
 
 		const requestOptions = {
