@@ -31,6 +31,33 @@
 .post--container--comments--container {
 	border-top: 1px solid var(--lighter-grey);
 	padding: 0 1rem;
+	display: flex;
+	position: relative;
+
+	transform: all 0.4s;
+}
+.probando--show--up--false {
+	position: absolute;
+	height: 0;
+
+
+	object-fit: cover;
+
+	transform: all 0.6s ease-out;
+}
+.probando--show--up--true {
+	position: absolute;
+	background-color: #fff;
+	padding: 1rem 2rem;
+	bottom: 0;
+	left: 0;
+	object-fit: fill;
+	transform: translate(0, -5%);
+	height: 14rem;
+	max-width: 21rem;
+
+	overflow-y: auto;
+	border-radius: 9px;
 }
 .post--card--header {
 	display: flex;

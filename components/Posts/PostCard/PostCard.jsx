@@ -50,16 +50,18 @@ export default function PostCard({ post }) {
 								>{`Ver los ${post.comments.length} commentarios`}</p>
 							)
 						)}
-						{isTrue
-							? post.comments
-									.map((comment) => (
-										<PostComment comment={comment} key={comment.id} />
-									))
-									.reverse()
-							: null}
-						{(isTrue && user) || (post.comments.length === 0 && user) ? (
-							<NewComment username={user.username} postId={post.id} />
-						) : null}
+						<div className={`probando--show--up--${isTrue}`}>
+							{isTrue
+								? post.comments
+										.map((comment) => (
+											<PostComment comment={comment} key={comment.id} />
+										))
+										.reverse()
+								: null}
+							{(isTrue && user) || (post.comments.length === 0 && user) ? (
+								<NewComment username={user.username} postId={post.id} />
+							) : null}
+						</div>
 					</div>
 				</div>
 			</div>
