@@ -1,10 +1,21 @@
 .post--card--comment--container {
+    display: flex;
+    flex-direction: column;
+}
 
+.comment--author span {
+    font-weight: 600;
+	letter-spacing: -0.03rem;
+	font-size: 1.2rem;
 }
 .comment--author {
-    font-weight: 600;
-}
-.post--card--comment--container > p {
-    letter-spacing: -0.03rem;
+    margin: .3rem 0;
     font-size: 1.2rem;
+}
+
+.response--parraf {
+    margin: .3rem 0;
+	font-size: 1rem;
+    color: rgb(77, 77, 211);
+    margin-left: auto;
 }

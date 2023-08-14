@@ -1,6 +1,21 @@
 const API_URL = 'http://127.0.0.1:8000';
 
 export function useComment() {
+	const getComments = async ({ postId }) => {
+		fetch(`${API_URL}/comment/${postId}`)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw response;
+			})
+			.then((data) => {
+				location.reload()
+				return data;
+			})
+			.catch((err) => console.error(err));
+	};
+
 	const createComment = async ({ username, text, postId, authorId }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
@@ -30,7 +45,7 @@ export function useComment() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					location.reload();
+					getComments({ postId });
 				}
 			})
 			.catch((err) => console.error(err));
