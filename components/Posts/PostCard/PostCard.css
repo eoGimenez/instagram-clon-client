@@ -33,33 +33,44 @@
 	padding: 0 1rem;
 	display: flex;
 	position: relative;
-
-	transform: all 0.4s;
 }
-.probando--show--up--false {
+.post--comments--show--up--false {
+	height: 14rem;
+	padding: 1rem 2rem;
+	background-color: #fff;
+
 	position: absolute;
-	height: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
+	transform: translateY(110%);
 
 	object-fit: cover;
-
-	transform: all 0.6s ease-out;
+	overflow: hidden;
 }
-.probando--show--up--true {
-	position: absolute;
+.post--comments--show--up--true {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
 	background-color: #fff;
+	height: 14rem;
 	padding: 1rem 2rem;
+	border-radius: 9px;
+
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	object-fit: fill;
-	transform: translate(0, -5%);
-	height: 14rem;
+	transform: translateY(0%);
 
+	object-fit: fill;
+	z-index: 1;
 	overflow-y: auto;
-	border-radius: 9px;
+
+	transition: all 0.6s ease;
+}
+.post--container--new--comment {
+	margin-top: auto;
 }
 .post--card--header {
 	display: flex;
