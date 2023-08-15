@@ -1,0 +1,19 @@
+.response--container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    margin-bottom: .5rem;
+}
+.response--container--parraf {
+	font-size: 1rem;
+    margin-left: 1rem;
+}
+.response--container--parraf span {
+    font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.response--container--update {
+    color: rgb(77, 77, 211);
+    margin-left: 1rem;
+}

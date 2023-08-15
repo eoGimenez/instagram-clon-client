@@ -42,9 +42,10 @@ export default function PostCard({ post }) {
 					<h2 className='card--caption'>{post.caption}</h2>
 					<div className='post--container--comments--container'>
 						{post.comments.length === 0 ? (
-							<p onClick={switchingGeneric}>{`Aun no hay comentarios`}</p>
+							<p className='post--container--comment--parraf' onClick={switchingGeneric}>{`Aun no hay comentarios`}</p>
 						) : (
 							<p
+								className='post--container--comment--parraf'
 								onClick={switchingGeneric}
 							>{`Ver los ${post.comments.length} commentarios`}</p>
 						)}
