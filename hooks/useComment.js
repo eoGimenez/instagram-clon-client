@@ -35,7 +35,6 @@ export function useComment() {
 			}),
 			body: json_string,
 		};
-		console.log(requestOptions)
 		fetch(`${API_URL}/comment/`, requestOptions)
 			.then((response) => {
 				if (response.ok) {
@@ -56,17 +55,12 @@ export function useComment() {
 
 	const deleteComment = async ({ commentId, userId }) => {
 		const storedToken = localStorage.getItem('authToken');
-		const json_string = JSON.stringify({
-			user_id: userId,
-		});
 		
 		const requestOptions = {
 			method: 'DELETE',
 			headers: new Headers({
-				'Content-Type': 'application/json',
 				Authorization: `Bearer ${storedToken}`,
 			}),
-			body: json_string,
 		};
 		
 		console.log(requestOptions)
@@ -78,7 +72,7 @@ export function useComment() {
 				throw response;
 			})
 			.then((data) => {
-				console.log(data);
+				location.reload();
 			})
 			.catch((err) => console.error(err));
 	};
