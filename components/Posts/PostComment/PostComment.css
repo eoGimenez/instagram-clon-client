@@ -13,15 +13,20 @@
 	margin: 0.3rem 0;
 	font-size: 1.2rem;
 }
+.comment--container--options {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
 
 .response--parraf {
 	margin: 0.3rem 0;
 	font-size: 1rem;
 	color: rgb(77, 77, 211);
-	margin-left: auto;
+	/* margin-left: auto; */
 }
 
-.post--card--response--container--false {
+/* .post--card--response--container--false {
 	background-color: #fff;
 	position: absolute;
 	left: 0;
@@ -31,22 +36,15 @@
 
 	object-fit: cover;
 	overflow: hidden;
-}
+} */
 .post--card--response--container--true {
 	display: flex;
-    height: 14rem;
-    padding: 1rem;
+	padding: 1rem;
 	flex-direction: column;
 	background-color: #fff;
+	margin-bottom: 1rem;
+}
 
-	position: absolute;
-	left: 0;
-	right: -5%;
-	top: -200%;
-	transform: translate(0%, -55%);
-
-	object-fit: fill;
-	overflow: auto;
-
-	transition: all 0.6s;
+.post--card--response--container--parraf {
+	margin-top: 0.4rem;
 }
