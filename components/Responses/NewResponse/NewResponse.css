@@ -1,0 +1,22 @@
+.new--response--form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.new--response--form fieldset {
+	border: none;
+}
+
+.new--response--form input {
+	max-width: 18ch;
+	border: none;
+	border-bottom: 1px solid var(--primary-font);
+}
+
+.new--response--form button {
+	border: none;
+	background-color: #fff;
+}

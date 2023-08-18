@@ -4,6 +4,7 @@ import Response from '../../Responses/ResponseCointainer/Response';
 import './PostComment.css';
 import { AuthContext } from '../../../context/auth.context';
 import { useComment } from '../../../hooks/useComment';
+import NewResponse from '../../Responses/NewResponse/NewResponse';
 
 export default function PostComment({ comment }) {
 	const { isTrue, switchingGeneric } = useSwitch();
@@ -28,9 +29,11 @@ export default function PostComment({ comment }) {
 								className='response--parraf'
 							>{`Leer respuetas (${comment.responses.length})`}</p>
 						) : (
-							<p className='response--parraf'>Responder</p>
+							<p className='response--parraf' onClick={switchingGeneric}>
+								Responder
+							</p>
 						)}
-						{comment.author_comment.id == user.id && (
+						{user && comment.author_comment.id == user.id && (
 							<p onClick={handleDelete} className='response--parraf'>
 								Eliminar
 							</p>
@@ -38,17 +41,27 @@ export default function PostComment({ comment }) {
 					</div>
 				</>
 			)}
-			{isTrue && comment.responses.length > 0 && (
-				<div className={`post--card--response--container--${isTrue}`}>
-					{/* <p className='comment--author'>
-						<span>{comment.username}</span>: {comment.text}
-					</p> */}
-					{comment.responses.map((response) => (
-						<Response response={response} key={response.id} comment={comment} />
-					))}
-					<p className='post--card--response--container--parraf' onClick={switchingGeneric}>Cerrar resuestas</p>
-				</div>
-			)}
+			{isTrue &&
+				(comment.responses.length > 0 ? (
+					<div className={`post--card--response--container--${isTrue}`}>
+						{comment.responses.map((response) => (
+							<Response response={response} key={response.id} comment={comment} />
+						))}
+						<div className={`post--card--response--container--${isTrue}`}>
+							<NewResponse user={user} commentId={comment.id} />
+						</div>
+						<p
+							className='post--card--response--container--parraf'
+							onClick={switchingGeneric}
+						>
+							Cerrar resuestas
+						</p>
+					</div>
+				) : (
+					<div className={`post--card--response--container--${isTrue}`}>
+						<NewResponse user={user} commentId={comment.id} />
+					</div>
+				))}
 		</div>
 	);
 }
