@@ -14,14 +14,20 @@ export default function PostComment({ comment }) {
 	const handleDelete = () => {
 		deleteComment({ commentId: comment.id, userId: comment.author_comment.id });
 	};
-	console.log(comment);
 	return (
 		<div className='post--card--comment--container'>
 			{!isTrue && (
 				<>
-					<p className='comment--author'>
-						<span>{comment.username}</span>: {comment.text}
-					</p>
+					<div className='post--comment--user--container'>
+						<img
+							src={comment.author_comment.avatar}
+							alt={`The avatar of the user: ${comment.username}`}
+							className='response--author--avatar'
+						/>
+						<p className='comment--author'>
+							<span>{comment.username}</span>: {comment.text}
+						</p>
+					</div>
 					<div className='comment--container--options'>
 						{comment.responses.length > 0 ? (
 							<p
@@ -45,7 +51,11 @@ export default function PostComment({ comment }) {
 				(comment.responses.length > 0 ? (
 					<div className={`post--card--response--container--${isTrue}`}>
 						{comment.responses.map((response) => (
-							<Response response={response} key={response.id} commentId={comment.id} />
+							<Response
+								response={response}
+								key={response.id}
+								commentId={comment.id}
+							/>
 						))}
 						<div className={`post--card--response--container--${isTrue}`}>
 							<NewResponse user={user} commentId={comment.id} />
