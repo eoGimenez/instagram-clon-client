@@ -45,7 +45,7 @@ export default function PostComment({ comment }) {
 				(comment.responses.length > 0 ? (
 					<div className={`post--card--response--container--${isTrue}`}>
 						{comment.responses.map((response) => (
-							<Response response={response} key={response.id} comment={comment} />
+							<Response response={response} key={response.id} commentId={comment.id} />
 						))}
 						<div className={`post--card--response--container--${isTrue}`}>
 							<NewResponse user={user} commentId={comment.id} />
@@ -60,6 +60,12 @@ export default function PostComment({ comment }) {
 				) : (
 					<div className={`post--card--response--container--${isTrue}`}>
 						<NewResponse user={user} commentId={comment.id} />
+						<p
+							className='post--card--response--container--parraf'
+							onClick={switchingGeneric}
+						>
+							Volver a comentarios
+						</p>
 					</div>
 				))}
 		</div>

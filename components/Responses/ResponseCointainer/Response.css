@@ -2,18 +2,62 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-    margin-bottom: .5rem;
+	margin-bottom: 0.5rem;
+}
+.response--info {
+	display: flex;
+	align-items: center;
+}
+.response--author--avatar {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 999px;
+	margin-bottom: 0.4rem;
 }
 .response--container--parraf {
 	font-size: 1rem;
-    margin-left: 1rem;
+	margin-left: 1rem;
 }
 .response--container--parraf span {
-    font-weight: 600;
+	font-weight: 600;
 	font-size: 1.2rem;
 }
+.response--container--edited {
+    margin-left: auto;
+    color: var(--light-grey);
+}
 
-.response--container--update {
-    color: rgb(77, 77, 211);
-    margin-left: 1rem;
+.response--container--options {
+	color: rgb(77, 77, 211);
+	margin-left: 1rem;
+}
+
+.response--container--user--options {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
+.response--edit--form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.response--edit--form fieldset {
+    display: flex;
+    gap: 1rem;
+	border: none;
+}
+
+.response--edit--form input {
+	max-width: 15ch;
+	border: none;
+	border-bottom: 1px solid var(--primary-font);
+}
+
+.response--edit--form button {
+	border: none;
+	background-color: #fff;
 }

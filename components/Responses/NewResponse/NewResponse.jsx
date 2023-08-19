@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useField } from '../../../hooks/useField';
 import { useResponse } from '../../../hooks/useResponse';
 import './NewResponse.css';
@@ -15,6 +16,7 @@ export default function NewResponse({ user, commentId }) {
 			username: user.username,
 		});
 	};
+
 
 	return (
 		<form onSubmit={handleResponse} className='new--response--form'>
