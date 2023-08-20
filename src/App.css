@@ -22,18 +22,6 @@ html {
 	box-shadow: 0 0 0 0 0.4rem var(--primary-font);
 }
 
-.section--app {
-	padding-inline: 1rem;
-	margin-inline: 1rem;
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 4rem;
-}
-
-.probando {
-	margin-inline: auto;
-}
-
 p {
 	margin: 0;
 }

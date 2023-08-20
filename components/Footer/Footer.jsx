@@ -3,11 +3,13 @@ import './Footer.css';
 import { AuthContext } from '../../context/auth.context';
 import { useSwitch } from '../../hooks/useSwitch';
 import NewPost from '../Posts/NewPost/NewPost';
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
 	const { isLoggedIn, user } = useContext(AuthContext);
 	const { isTrue, switchingGeneric } = useSwitch();
-	
+	const navigate = useNavigate();
+
 	return (
 		<footer className={`footer--user`}>
 			{isTrue && <NewPost user={user} />}
@@ -15,7 +17,7 @@ export default function Footer() {
 				<div className='footer--user--container'>
 					<p
 						onClick={() => {
-							globalThis.window.scrollTo(0, 0);
+							navigate('/');
 						}}
 					>
 						<ion-icon name='home-outline'></ion-icon>
@@ -27,6 +29,9 @@ export default function Footer() {
 						src={user.avatar}
 						alt={`${user.username}'s avatar`}
 						className='footer--user--avatar'
+						onClick={() => {
+							navigate('/profile');
+						}}
 					/>
 				</div>
 			)}

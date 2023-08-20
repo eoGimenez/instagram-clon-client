@@ -1,20 +1,19 @@
 import './App.css';
-import PostCard from '../components/Posts/PostCard/PostCard';
-import { usePost } from '../hooks/usePost';
-import Loading from '../components/Loading/Loading';
+import { Routes, Route } from 'react-router-dom';
+
 import Nav from '../components/Nav/Nav';
 import Footer from '../components/Footer/Footer';
+import HomePage from '../components/HomePage/HomePage';
+import Profile from '../components/User/Profile/Profile';
 
 export default function App() {
-	const { posts, isLoading } = usePost();
-
 	return (
 		<>
 			<Nav />
-			<section className='section--app'>
-				{isLoading && <Loading />}
-				{!isLoading && posts && posts.map((post) => <PostCard post={post} key={post.id} />)}
-			</section>
+			<Routes>
+				<Route path='/' element={<HomePage />} />
+				<Route path='/profile' element={<Profile />} />
+			</Routes>
 			<Footer />
 		</>
 	);
