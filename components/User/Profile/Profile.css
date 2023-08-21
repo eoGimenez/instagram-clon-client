@@ -1,6 +1,33 @@
+.profile--user--details {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 2rem;
+	margin-bottom: 2rem;
+	padding: 1rem;
+}
+.profile--img--container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+.profile--img--container p {
+	font-size: 1.4rem;
+}
+.profile--img--container p:hover {
+	transition: all 0.3s;
+	font-size: 1.6rem;
+}
+.profile--user--details--img {
+	width: 12rem;
+	height: 12rem;
+	border-radius: 999px;
+}
 .profile--users--posts {
 	display: grid;
-    
+
 	grid-template-columns: repeat(4, 1fr);
 }
 
