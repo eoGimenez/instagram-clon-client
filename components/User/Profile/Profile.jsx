@@ -12,7 +12,7 @@ export default function Profile() {
 	const { user } = useContext(AuthContext);
 	const { userId } = useParams();
 	const { userPosts, getUserPosts, isLoading } = usePost();
-	const { userById, getUserById, updateUserById } = useUser();
+	const { userById, getUserById } = useUser();
 	const { isTrue, switchingGeneric } = useSwitch();
 
 	useEffect(() => {

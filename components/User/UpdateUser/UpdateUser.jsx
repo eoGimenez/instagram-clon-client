@@ -1,4 +1,5 @@
 import { useFile } from '../../../hooks/useFile';
+import { useUser } from '../../../hooks/useUser';
 import LoadingImage from '../../HandlerImage/Loading/LoadingImage';
 import Successfull from '../../HandlerImage/Successfull/Successfull';
 import Uploader from '../../HandlerImage/Uploader/Uploader';
@@ -6,11 +7,17 @@ import './UpdateUser.css';
 
 export default function UpdateUser({ user }) {
 	const { image, isLoadingImg, status, onChange, handleDrag, handleDrop } = useFile();
-    
-    const updateHandler = (e) => {
-        e.preventDefault();
+	const { updateUserById } = useUser();
 
-    }
+	const updateHandler = (e) => {
+		e.preventDefault();
+		updateUserById({
+			userId: user.id,
+			username: user.username,
+			email: user.email,
+			avatar: image,
+		});
+	};
 	return (
 		<form onSubmit={updateHandler} className='profile--update--user--img'>
 			<fieldset>
@@ -25,6 +32,7 @@ export default function UpdateUser({ user }) {
 				{!image && isLoadingImg && <LoadingImage />}
 				{image && <Successfull image={image} />}
 			</fieldset>
+			<button>Actualizar</button>
 		</form>
 	);
 }

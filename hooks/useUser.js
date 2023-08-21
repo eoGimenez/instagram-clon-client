@@ -32,12 +32,15 @@ export function useUser() {
 		};
 	};
 
-	const updateUserById = async ({ avatar, userId}) => {
+	const updateUserById = async ({ username, email, avatar, userId }) => {
 		let isCancelled = false;
 		setIsLoading(true);
 		const storedToken = localStorage.getItem('authToken');
 
 		const json_string = JSON.stringify({
+			id: userId,
+			username: username,
+			email: email,
 			avatar: avatar,
 		});
 
@@ -62,6 +65,7 @@ export function useUser() {
 					setUserById(data);
 					setInterval(() => {
 						setIsLoading(false);
+						location.reload();
 					}, 1000);
 				}
 			})
