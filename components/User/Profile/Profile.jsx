@@ -1,16 +1,32 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import './Profile.css';
-import { AuthContext } from '../../../context/auth.context';
-import { useNavigate } from 'react-router-dom';
+import { usePost } from '../../../hooks/usePost';
+import { useParams } from 'react-router-dom';
+import Loading from '../../Loading/Loading';
 
 export default function Profile() {
-	const { user } = useContext(AuthContext);
+	const { userId } = useParams();
+	const { userPosts, getUserPosts, isLoading } = usePost();
 
+	useEffect(() => {
+		getUserPosts({ userId });
+	}, []);
+
+	console.log(userPosts);
 	return (
 		<>
-			{user && (
-				<div>
-					<h1>{user.username}</h1>
+			{isLoading && <Loading />}
+			{!isLoading && userPosts && (
+				<div className='profile--users--posts'>
+					{userPosts.map((post) => (
+						<div className='profile--users--post--container' key={post.id}>
+							<img
+								src={post.image_url}
+								alt={`La imagen del post del usuario ${post.author.username} en el post numero: ${post.id}`}
+								className='profile--users--post--img'
+							/>
+						</div>
+					))}
 				</div>
 			)}
 		</>

@@ -6,7 +6,7 @@ import './NewResponse.css';
 export default function NewResponse({ user, commentId }) {
 	const text = useField({ type: 'text', field: '' });
 	const { createResponse } = useResponse();
-	
+
 	const handleResponse = (e) => {
 		e.preventDefault();
 		createResponse({
@@ -17,13 +17,16 @@ export default function NewResponse({ user, commentId }) {
 		});
 	};
 
-
 	return (
-		<form onSubmit={handleResponse} className='new--response--form'>
-			<fieldset>
-				<input {...text} placeholder='Escriba su respuesta' />
-			</fieldset>
-			<button className='new--response--form--btn'>Responder</button>
-		</form>
+		<>
+			{user && (
+				<form onSubmit={handleResponse} className='new--response--form'>
+					<fieldset>
+						<input {...text} placeholder='Escriba su respuesta' />
+					</fieldset>
+					<button className='new--response--form--btn'>Responder</button>
+				</form>
+			)}
+		</>
 	);
 }

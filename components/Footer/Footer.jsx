@@ -30,7 +30,7 @@ export default function Footer() {
 						alt={`${user.username}'s avatar`}
 						className='footer--user--avatar'
 						onClick={() => {
-							navigate('/profile');
+							navigate(`/profile/${user.id}`);
 						}}
 					/>
 				</div>

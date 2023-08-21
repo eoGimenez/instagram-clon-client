@@ -1,0 +1,10 @@
+.profile--users--posts {
+	display: grid;
+    
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.profile--users--post--img {
+	width: 10rem;
+	height: 10rem;
+}

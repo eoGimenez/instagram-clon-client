@@ -5,6 +5,7 @@ import './HomePage.css';
 
 export default function HomePage() {
 	const { posts, isLoading } = usePost();
+	
 	return (
 		<section className='section--app'>
 			{isLoading && <Loading />}

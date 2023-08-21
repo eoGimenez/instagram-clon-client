@@ -4,6 +4,7 @@ const API_URL = 'http://127.0.0.1:8000';
 
 export function usePost() {
 	const [posts, setPosts] = useState([]);
+	const [userPosts, setUserPosts] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const getPosts = async () => {
@@ -72,9 +73,34 @@ export function usePost() {
 		};
 	};
 
+	const getUserPosts = async ({ userId }) => {
+		let isCancelled = false;
+		setIsLoading(true);
+
+		fetch(`${API_URL}/post/user_posts/${userId}`)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw response;
+			})
+			.then((data) => {
+				if (!isCancelled) {
+					setUserPosts(data.reverse());
+					setInterval(() => {
+						setIsLoading(false);
+					}, 1000);
+				}
+			})
+			.catch((err) => console.error(err));
+		return () => {
+			isCancelled = true;
+		};
+	};
+
 	useEffect(() => {
 		getPosts();
 	}, []);
 
-	return { posts, isLoading, createPost };
+	return { posts, userPosts, isLoading, createPost, getUserPosts };
 }

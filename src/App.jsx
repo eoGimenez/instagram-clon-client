@@ -12,7 +12,7 @@ export default function App() {
 			<Nav />
 			<Routes>
 				<Route path='/' element={<HomePage />} />
-				<Route path='/profile' element={<Profile />} />
+				<Route path='/profile/:userId' element={<Profile />} />
 			</Routes>
 			<Footer />
 		</>
