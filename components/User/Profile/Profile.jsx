@@ -39,7 +39,7 @@ export default function Profile() {
 				</div>
 			)}
 			{isTrue && !isLoading && <UpdateUser user={user} />}
-			{!isLoading && userPosts && (
+			{!isTrue && !isLoading && userPosts && (
 				<div className='profile--users--posts'>
 					{userPosts.map((post) => (
 						<div className='profile--users--post--container' key={post.id}>
