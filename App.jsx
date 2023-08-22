@@ -13,7 +13,7 @@ export default function App() {
 			<Nav />
 			<Routes>
 				<Route path='/' element={<HomePage />} />
-				<Route path='profile/:userId' element={<Profile />} />
+				<Route path='/:userId' element={<Profile />} />
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 			<Footer />
