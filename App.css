@@ -1,6 +1,10 @@
 :root {
 	/* BUSCAR COLORES DE INSTAGRAM */
+	--primary-light: #e96262;
+	--primary-dark: #8d3939;
+
 	--primary-font: #555;
+	--primary-darker: #181818;
 	--lighter-grey: #ddd;
 	--light-grey: #6e6e6e;
 

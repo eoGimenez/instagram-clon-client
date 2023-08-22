@@ -48,6 +48,7 @@ export default function Profile() {
 								src={post.image_url}
 								alt={`La imagen del post del usuario ${post.author.username} en el post numero: ${post.id}`}
 								className='profile--users--post--img'
+								onClick={() => {navigate(`/post/${post.id}`)}}
 							/>
 						</div>
 					))}

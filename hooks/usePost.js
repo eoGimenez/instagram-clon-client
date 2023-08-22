@@ -6,6 +6,7 @@ export function usePost() {
 	const [posts, setPosts] = useState([]);
 	const [userPosts, setUserPosts] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [onePost, setOnePost] = useState(null);
 
 	const getPosts = async () => {
 		let isCancelled = false;
@@ -98,9 +99,35 @@ export function usePost() {
 		};
 	};
 
+	const getPostById = async ({ postId }) => {
+		let isCancelled = false;
+		setIsLoading(true);
+
+		fetch(`${API_URL}/post/${postId}`)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw response;
+			})
+			.then((data) => {
+				if (!isCancelled) {
+					setOnePost(data);
+					setIsLoading(false);
+				}
+			})
+			.catch((err) => {
+				console.error(err);
+				setIsLoading(false);
+			});
+		return () => {
+			isCancelled = true;
+		};
+	};
+
 	useEffect(() => {
 		getPosts();
 	}, []);
 
-	return { posts, userPosts, isLoading, createPost, getUserPosts };
+	return { posts, userPosts, isLoading, onePost, createPost, getUserPosts, getPostById };
 }
