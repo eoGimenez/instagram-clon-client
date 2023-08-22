@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import './Profile.css';
 import { usePost } from '../../../hooks/usePost';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../Loading/Loading';
 import { useUser } from '../../../hooks/useUser';
 import { useSwitch } from '../../../hooks/useSwitch';
@@ -14,6 +14,7 @@ export default function Profile() {
 	const { userPosts, getUserPosts, isLoading } = usePost();
 	const { userById, getUserById } = useUser();
 	const { isTrue, switchingGeneric } = useSwitch();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		getUserPosts({ userId });
@@ -31,7 +32,7 @@ export default function Profile() {
 							alt={`La imagen de perfil del usuario: ${userById.username}`}
 							className='profile--user--details--img'
 						/>
-						{user.id == userById.id ? (
+						{user && user.id == userById.id ? (
 							<p onClick={switchingGeneric}>Cambiar imagen</p>
 						) : null}
 					</div>
@@ -50,6 +51,19 @@ export default function Profile() {
 							/>
 						</div>
 					))}
+				</div>
+			)}
+			{!userById && (
+				<div className='profile--user--nouser'>
+					<h2>{`El usuario con el id: ${userId}, no existe.`}</h2>
+					<p
+						className='profile--user--nouser--parraf'
+						onClick={() => {
+							navigate('/');
+						}}
+					>
+						Home
+					</p>
 				</div>
 			)}
 		</>

@@ -27,10 +27,16 @@
 .response--parraf {
 	margin: 0.5rem 0;
 	font-size: 1rem;
-	color: rgb(77, 77, 211);
-	/* margin-left: auto; */
+	color: var(--links);
+	margin-bottom: 0.7rem;
 }
 
+.post--responses--user--comment--container {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	margin-bottom: 1rem;
+}
 /* .post--card--response--container--false {
 	background-color: #fff;
 	position: absolute;
@@ -47,9 +53,13 @@
 	padding: 1rem;
 	flex-direction: column;
 	background-color: #fff;
-	margin-bottom: 1rem;
 }
 
+.post--card--response--container--true:last-child {
+	border-bottom: 1px solid var(--lighter-grey);
+	margin-bottom: 1rem;
+}
 .post--card--response--container--parraf {
-	margin-top: 0.4rem;
+	color: var(--links);
+	margin-left: 1rem;
 }

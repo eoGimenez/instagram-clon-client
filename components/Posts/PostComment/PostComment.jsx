@@ -50,6 +50,16 @@ export default function PostComment({ comment }) {
 			{isTrue &&
 				(comment.responses.length > 0 ? (
 					<div className={`post--card--response--container--${isTrue}`}>
+						<div className='post--responses--user--comment--container'>
+							<img
+								src={comment.author_comment.avatar}
+								alt={`The avatar of the user: ${comment.username}`}
+								className='response--author--avatar'
+							/>
+							<p className='comment--author'>
+								<span>{comment.username}</span>: {comment.text}
+							</p>
+						</div>
 						{comment.responses.map((response) => (
 							<Response
 								response={response}
@@ -69,6 +79,16 @@ export default function PostComment({ comment }) {
 					</div>
 				) : (
 					<div className={`post--card--response--container--${isTrue}`}>
+						<div className='post--responses--user--comment--container'>
+							<img
+								src={comment.author_comment.avatar}
+								alt={`The avatar of the user: ${comment.username}`}
+								className='response--author--avatar'
+							/>
+							<p className='comment--author'>
+								<span>{comment.username}</span>: {comment.text}
+							</p>
+						</div>
 						<NewResponse user={user} commentId={comment.id} />
 						<p
 							className='post--card--response--container--parraf'

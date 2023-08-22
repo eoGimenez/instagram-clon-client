@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-bottom: 0.5rem;
+	padding-left: 1rem;
 }
 .response--info {
 	display: flex;
@@ -23,12 +23,12 @@
 	font-size: 1.2rem;
 }
 .response--container--edited {
-    margin-left: auto;
-    color: var(--light-grey);
+	margin-left: auto;
+	color: var(--light-grey);
 }
 
 .response--container--options {
-	color: rgb(77, 77, 211);
+	color: var(--links);
 	margin-left: 1rem;
 }
 
@@ -46,8 +46,8 @@
 }
 
 .response--edit--form fieldset {
-    display: flex;
-    gap: 1rem;
+	display: flex;
+	gap: 1rem;
 	border: none;
 }
 

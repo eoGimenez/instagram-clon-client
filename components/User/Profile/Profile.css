@@ -35,3 +35,18 @@
 	width: 10rem;
 	height: 10rem;
 }
+.profile--user--nouser {
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: -0.04rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile--user--nouser--parraf {
+	font-size: 1.3rem;
+	color: var(--links);
+}
