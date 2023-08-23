@@ -1,14 +1,11 @@
 .section--post--card {
 	margin-bottom: 4.4rem;
-	margin-inline: auto;
+	/* margin-inline: auto; */
 }
 .post--card--container {
 	display: grid;
-	width: 25rem;
-	margin-inline: auto;
+	width: 100%;
 	box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-	border-radius: 11px;
-	border: 1px solid var(--lighter-grey);
 	overflow: hidden;
 }
 .image--container {
@@ -29,10 +26,18 @@
 	letter-spacing: -0.04rem;
 }
 .post--container--comments--container {
-	border-top: 1px solid var(--lighter-grey);
 	padding: 0 1rem;
 	display: flex;
 	position: relative;
+}
+.post--container--comment--parraf {
+	color: var(--light-grey);
+	font-size: 1.3rem;
+	font-weight: 500;
+	line-height: 2;
+	letter-spacing: -0.02rem;
+	
+	margin: 1rem 0;
 }
 .post--comments--show--up--false {
 	height: 14rem;
@@ -69,7 +74,6 @@
 	transition: all 0.6s ease;
 }
 .post--container--new--comment {
-	
 }
 .post--card--header {
 	display: flex;
@@ -95,8 +99,4 @@
 	font-size: 1.2rem;
 	font-weight: 500;
 	text-transform: uppercase;
-}
-
-.post--container--comment--parraf{
-	margin: 1rem 0;
 }
