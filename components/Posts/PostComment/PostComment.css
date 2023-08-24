@@ -1,4 +1,4 @@
-.post--card--comment--container {
+.post--comment--container {
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -12,11 +12,11 @@
 .comment--author span {
 	font-weight: 600;
 	letter-spacing: -0.03rem;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 }
 .comment--author {
 	margin: 0.3rem 0;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 }
 .comment--container--options {
 	display: flex;
@@ -26,9 +26,11 @@
 
 .response--parraf {
 	margin: 0.5rem 0;
-	font-size: 1rem;
-	color: var(--links);
-	margin-bottom: 0.7rem;
+	color: var(--light-grey);
+	font-size: 1.3rem;
+	letter-spacing: -0.03rem;
+	line-height: 2;
+	font-weight: 400;
 }
 
 .post--responses--user--comment--container {
@@ -48,18 +50,22 @@
 	object-fit: cover;
 	overflow: hidden;
 } */
-.post--card--response--container--true {
+.post--comment--response--container--true {
 	display: flex;
 	padding: 1rem;
 	flex-direction: column;
 	background-color: #fff;
 }
 
-.post--card--response--container--true:last-child {
+.post--comment--response--container--true:last-child {
 	border-bottom: 1px solid var(--lighter-grey);
 	margin-bottom: 1rem;
 }
-.post--card--response--container--parraf {
-	color: var(--links);
+.post--comment--response--container--parraf {
+	color: var(--light-grey);
+	font-size: 1.3rem;
 	margin-left: 1rem;
+	letter-spacing: -0.03rem;
+	line-height: 2;
+	font-weight: 400;
 }

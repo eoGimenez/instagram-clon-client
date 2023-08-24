@@ -15,7 +15,7 @@ export default function PostComment({ comment }) {
 		deleteComment({ commentId: comment.id, userId: comment.author_comment.id });
 	};
 	return (
-		<div className='post--card--comment--container'>
+		<div className='post--comment--container'>
 			{!isTrue && (
 				<>
 					<div className='post--comment--user--container'>
@@ -36,12 +36,12 @@ export default function PostComment({ comment }) {
 							>{`Leer respuetas (${comment.responses.length})`}</p>
 						) : (
 							<p className='response--parraf' onClick={switchingGeneric}>
-								Responder
+								Responder...
 							</p>
 						)}
 						{user && comment.author_comment.id == user.id && (
 							<p onClick={handleDelete} className='response--parraf'>
-								Eliminar
+								Eliminar...
 							</p>
 						)}
 					</div>
@@ -49,7 +49,7 @@ export default function PostComment({ comment }) {
 			)}
 			{isTrue &&
 				(comment.responses.length > 0 ? (
-					<div className={`post--card--response--container--${isTrue}`}>
+					<div className={`post--comment--response--container--${isTrue}`}>
 						<div className='post--responses--user--comment--container'>
 							<img
 								src={comment.author_comment.avatar}
@@ -67,18 +67,18 @@ export default function PostComment({ comment }) {
 								commentId={comment.id}
 							/>
 						))}
-						<div className={`post--card--response--container--${isTrue}`}>
+						<div className={`post--comment--response--container--${isTrue}`}>
 							<NewResponse user={user} commentId={comment.id} />
 						</div>
 						<p
-							className='post--card--response--container--parraf'
+							className='post--comment--response--container--parraf'
 							onClick={switchingGeneric}
 						>
-							Cerrar resuestas
+							Cerrar resuestas...
 						</p>
 					</div>
 				) : (
-					<div className={`post--card--response--container--${isTrue}`}>
+					<div className={`post--comment--response--container--${isTrue}`}>
 						<div className='post--responses--user--comment--container'>
 							<img
 								src={comment.author_comment.avatar}
@@ -91,10 +91,10 @@ export default function PostComment({ comment }) {
 						</div>
 						<NewResponse user={user} commentId={comment.id} />
 						<p
-							className='post--card--response--container--parraf'
+							className='post--comment--response--container--parraf'
 							onClick={switchingGeneric}
 						>
-							Volver a comentarios
+							Volver a comentarios...
 						</p>
 					</div>
 				))}

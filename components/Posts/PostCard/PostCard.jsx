@@ -40,16 +40,16 @@ export default function PostCard({ post }) {
 				</div>
 				<div className='card--container'>
 					<h2 className='card--caption'>{post.caption}</h2>
-					<div className='post--container--comments--container'>
+					<div className='postcard--container--comments--container'>
 						{post.comments.length === 0 ? (
-							<p className='post--container--comment--parraf' onClick={switchingGeneric}>{`Aun no hay comentarios`}</p>
+							<p className='postcard--container--comment--parraf' onClick={switchingGeneric}>{`Aun no hay comentarios`}</p>
 						) : (
 							<p
-								className='post--container--comment--parraf'
+								className='postcard--container--comment--parraf'
 								onClick={switchingGeneric}
 							>{`Ver los ${post.comments.length} commentarios`}</p>
 						)}
-						<div className={`post--comments--show--up--${isTrue}`}>
+						<div className={`postcard--comments--show--up--${isTrue}`}>
 							{isTrue
 								? post.comments
 										.map((comment) => (
@@ -57,7 +57,7 @@ export default function PostCard({ post }) {
 										))
 										.reverse()
 								: null}
-							<div className='post--container--new--comment'>
+							<div className='postcard--container--new--comment'>
 								{(isTrue && user) || (post.comments.length === 0 && user) ? (
 									<NewComment user={user} postId={post.id} />
 								) : null}

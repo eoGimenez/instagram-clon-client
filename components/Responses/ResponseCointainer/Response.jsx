@@ -40,15 +40,15 @@ export default function Response({ response, commentId }) {
 						<p className='response--container--parraf'>
 							<span>{response.username}</span>: {response.text}
 						</p>
-					</div>
 					{response.edited && <p className='response--container--edited'>Editado</p>}
+					</div>
 					{user && response.author_response.id == user.id && (
 						<div className='response--container--user--options'>
-							<p onClick={switchingGeneric} className='response--container--options'>
-								Editar
+							<p onClick={switchingGeneric} className='response--parraf--options'>
+								Editar...
 							</p>
-							<p onClick={deleteHandler} className='response--container--options'>
-								Borrar
+							<p onClick={deleteHandler} className='response--parraf--options'>
+								Borrar...
 							</p>
 						</div>
 					)}
