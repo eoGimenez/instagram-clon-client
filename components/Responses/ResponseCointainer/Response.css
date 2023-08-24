@@ -4,6 +4,9 @@
 	justify-content: center;
 	padding-left: 1rem;
 }
+.response--container:first-child {
+	margin-top: 0.3rem;
+}
 .response--info {
 	display: flex;
 	align-items: center;
@@ -24,7 +27,6 @@
 .response--container--parraf span {
 	font-weight: 600;
 	font-size: 1.3rem;
-
 }
 .response--container--edited {
 	color: var(--light-grey);

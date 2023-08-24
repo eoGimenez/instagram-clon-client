@@ -39,22 +39,40 @@
 	align-items: center;
 	margin-bottom: 1rem;
 }
-/* .post--card--response--container--false {
+.post--comment--response--container--false {
+	height: 14rem;
+	padding: 1rem 2rem;
 	background-color: #fff;
+
+	z-index: -10;
+
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: -200%;
-	transform: translate(110%, 0%);
+	top: 0;
+	transform: translateY(110%);
 
 	object-fit: cover;
 	overflow: hidden;
-} */
+}
 .post--comment--response--container--true {
 	display: flex;
 	padding: 1rem;
 	flex-direction: column;
 	background-color: #fff;
+
+	z-index: 4;
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	transform: translateY(0%);
+
+	object-fit: fill;
+	overflow-y: auto;
+
+	transition: all 0.6s ease;
 }
 
 .post--comment--response--container--true:last-child {
