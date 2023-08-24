@@ -38,7 +38,7 @@ export default function NewPost({ user }) {
 					{!image && isLoadingImg && <LoadingImage />}
 					{image && <Successfull image={image} />}
 				</fieldset>
-				<button className='modal--new--post--btn'>Crear post</button>'
+				<button className='modal--new--post--btn'>Crear post</button>
 			</form>
 		</div>
 	);

@@ -9,14 +9,39 @@
 	width: 80vw;
 }
 .modal--new--post--form {
+	display: flex;
+	flex-direction: column;
 	padding: 3rem 0;
 }
 .modal--new--post--form fieldset {
 	border: none;
+}
+.modal--new--post--form fieldset:first-child {
+	margin-inline: auto;
 }
 
 .modal--new--post--form input {
 	resize: none;
 	border: none;
 	border-bottom: 1px solid var(--lighter-grey);
+}
+
+.modal--new--post--btn {
+	font-size: 1.2rem;
+	letter-spacing: -0.03rem;
+	font-weight: 600;
+	color: var(--primary-darker);
+
+	border: none;
+	margin-inline: auto;
+	padding: 1rem 1.5rem;
+	border-radius: 9px;
+	background-color: var(--drag--border);
+
+	transition: all 0.3s;
+}
+.modal--new--post--btn:active,
+.modal--new--post--btn:hover {
+	color: var(--primary-font);
+	background-color: var(--drag--back);
 }
