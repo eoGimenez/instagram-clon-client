@@ -1,3 +1,6 @@
+.section--post--card:first-child {
+	margin-top: 6rem;
+}
 .section--post--card {
 	margin-bottom: 4.4rem;
 	/* margin-inline: auto; */
