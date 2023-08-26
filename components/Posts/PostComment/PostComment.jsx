@@ -48,10 +48,10 @@ export default function PostComment({ comment }) {
 				</>
 			)}
 			<div className={`post--comment--response--container--${isTrue}`}>
-				{isTrue &&
-					(comment.responses.length > 0 ? (
+				{isTrue ? (
+					comment.responses.length > 0 ? (
 						<>
-							<div className='post--responses--user--comment--container'>
+							<div className='post--comment--responses--user--comment--container'>
 								<img
 									src={comment.author_comment.avatar}
 									alt={`The avatar of the user: ${comment.username}`}
@@ -68,7 +68,7 @@ export default function PostComment({ comment }) {
 									commentId={comment.id}
 								/>
 							))}
-							<div className={`post--comment--response--container--${isTrue}`}>
+							<div className='post--comment--response--container'>
 								<NewResponse user={user} commentId={comment.id} />
 							</div>
 							<p
@@ -79,8 +79,8 @@ export default function PostComment({ comment }) {
 							</p>
 						</>
 					) : (
-						<div className={`post--comment--response--container--${isTrue}`}>
-							<div className='post--responses--user--comment--container'>
+						<div className='post--comment--response--container'>
+							<div className='post--comment--responses--user--comment--container'>
 								<img
 									src={comment.author_comment.avatar}
 									alt={`The avatar of the user: ${comment.username}`}
@@ -98,7 +98,8 @@ export default function PostComment({ comment }) {
 								Volver a comentarios...
 							</p>
 						</div>
-					))}
+					)
+				) : null}
 			</div>
 		</div>
 	);
