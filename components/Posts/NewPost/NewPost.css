@@ -7,6 +7,8 @@
 	top: -900%;
 	left: 10%;
 	width: 80vw;
+	border-radius: 9px;
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 .modal--new--post--form {
 	display: flex;
@@ -15,6 +17,7 @@
 }
 .modal--new--post--form fieldset {
 	border: none;
+	padding: 0;
 }
 .modal--new--post--form fieldset:first-child {
 	margin-inline: auto;
@@ -37,6 +40,7 @@
 	padding: 1rem 1.5rem;
 	border-radius: 9px;
 	background-color: var(--drag--border);
+	margin-top: 1rem;
 
 	transition: all 0.3s;
 }
