@@ -22,7 +22,7 @@ export default function Profile() {
 	}, []);
 	console.log(userById);
 	return (
-		<>
+		<section className='section--profile--user--details'>
 			{isLoading && <Loading />}
 			{!isTrue && !isLoading && userById && (
 				<div className='profile--user--details'>
@@ -67,6 +67,6 @@ export default function Profile() {
 					</p>
 				</div>
 			)}
-		</>
+		</section>
 	);
 }

@@ -1,4 +1,4 @@
-.hader--nav--container {
+.header--nav--container {
 	position: fixed;
 	background-color: #fff;
 	width: 100vw;
@@ -6,7 +6,7 @@
 	padding: 0;
 	border-bottom: 1px solid var(--primary-font);
 	/* margin-bottom: 2rem; */
-	z-index: 99;
+	/* z-index: 99; */
 }
 
 .nav {
@@ -36,3 +36,23 @@
 	position: relative;
 	
 }
+
+@media (min-width: 48.12em) {
+	.header--nav--container {
+		position: fixed;
+		width: 10rem;
+		height: 50vh;
+		top: 0;
+		bottom: 0;
+
+		border: none;
+	}
+
+	.nav {
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 3rem;
+		/* z-index: 99; */
+	}
+}
+

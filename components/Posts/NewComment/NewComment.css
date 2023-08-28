@@ -18,4 +18,5 @@
 .new--comment--form button {
 	border: none;
 	background-color: #fff;
+	cursor: pointer;
 }

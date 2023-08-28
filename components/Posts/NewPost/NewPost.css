@@ -49,3 +49,14 @@
 	color: var(--primary-font);
 	background-color: var(--drag--back);
 }
+
+@media (min-width: 48.12em) {
+	.modal--new--post {
+		top: 0;
+		left: 0;
+		transform: translateX(50%);
+
+		width: 40rem;
+
+	}
+}

@@ -1,3 +1,11 @@
+.section--profile--user--details {
+	display: flex;
+	flex-direction: column;
+	margin-inline: auto;
+	max-width: 47rem;
+	padding-top: 6rem;
+}
+
 .profile--user--details {
 	display: flex;
 	flex-direction: row;

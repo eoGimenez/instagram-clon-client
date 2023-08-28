@@ -7,9 +7,36 @@
 }
 .post--card--container {
 	display: grid;
-	width: 100vw;
+	/* width: 100vw; */
+	max-width: 39rem;
 	box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 	overflow: hidden;
+}
+.post--card--header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.post--card--author {
+	font-size: 1.6rem;
+	letter-spacing: -0.04rem;
+}
+.post--card--author--avatar {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 999px;
+	margin: 1rem;
+}
+.post--card--header--btn--delete {
+	background-color: #fff;
+	border: none;
+	margin-left: auto;
+	margin-right: 1rem;
+	font-size: 1.2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+
+	cursor: pointer;
 }
 .image--container {
 }
@@ -39,6 +66,7 @@
 	font-weight: 500;
 	line-height: 1;
 	letter-spacing: -0.02rem;
+	cursor: pointer;
 
 	margin: 1rem 0;
 }
@@ -86,28 +114,29 @@
 	flex-direction: column;
 	margin-top: auto;
 }
-.post--card--header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-.post--card--author {
-	font-size: 1.6rem;
-	letter-spacing: -0.04rem;
-}
-.post--card--author--avatar {
-	width: 3rem;
-	height: 3rem;
-	border-radius: 999px;
-	margin: 1rem;
+
+@media (min-width: 25.62em) {
+	.post--card--container {
+		min-width: 41rem;
+	}
 }
 
-.post--card--header--btn--delete {
-	background-color: #fff;
-	border: none;
-	margin-left: auto;
-	margin-right: 1rem;
-	font-size: 1.2rem;
-	font-weight: 500;
-	text-transform: uppercase;
+@media (min-width: 26.87em) {
+	.post--card--container {
+		min-width: 43rem;
+	}
+}
+@media (min-width: 28.12em) {
+	.post--card--container {
+		min-width: 45rem;
+	}
+}
+@media (min-width: 29.37em) {
+	.post--card--container {
+		min-width: 47rem;
+		margin-inline: auto;
+	}
+}
+@media (min-width: 48.12em) {
+	
 }

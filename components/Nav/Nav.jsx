@@ -16,7 +16,7 @@ export default function Nav() {
 	// }
 
 	return (
-		<header className='hader--nav--container'>
+		<header className='header--nav--container'>
 			<nav className='nav'>
 				<img
 					src='https://cdn.icon-icons.com/icons2/2699/PNG/512/instagram_logo_icon_170643.png'
@@ -40,6 +40,7 @@ export default function Nav() {
 					)}
 				</div>
 			</nav>
+			
 			<div className='headers--auth--modals'>
 				{isTrue && !isLoggedIn && <Login isTrue={isTrue} />}
 				{isTrueSign && !isLoggedIn && <Signup isTrueSign={isTrueSign} />}
