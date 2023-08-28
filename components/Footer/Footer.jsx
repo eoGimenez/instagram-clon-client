@@ -16,13 +16,14 @@ export default function Footer() {
 			{isLoggedIn && (
 				<div className='footer--user--container'>
 					<p
+						className='btn'
 						onClick={() => {
 							navigate('/');
 						}}
 					>
 						<ion-icon name='home-outline'></ion-icon>
 					</p>
-					<p onClick={switchingGeneric}>
+					<p className='btn' onClick={switchingGeneric}>
 						<ion-icon name='add-circle-outline'></ion-icon>
 					</p>
 					<img

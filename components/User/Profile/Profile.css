@@ -37,6 +37,7 @@
 	display: grid;
 
 	grid-template-columns: repeat(4, 1fr);
+	margin-inline: auto;
 }
 
 .profile--users--post--img {

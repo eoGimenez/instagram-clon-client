@@ -14,6 +14,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	margin-inline: 1rem;
 }
 
 .nav--logo {
@@ -34,7 +35,6 @@
 }
 .headers--auth--modals {
 	position: relative;
-	
 }
 
 @media (min-width: 48.12em) {
@@ -42,7 +42,7 @@
 		position: fixed;
 		width: 10rem;
 		height: 50vh;
-		top: 0;
+		top: 10px;
 		bottom: 0;
 
 		border: none;
@@ -50,9 +50,9 @@
 
 	.nav {
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: center;
 		gap: 3rem;
+		padding: 0 2rem;
 		/* z-index: 99; */
 	}
 }
-

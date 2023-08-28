@@ -34,3 +34,16 @@ html {
 p {
 	margin: 0;
 }
+
+.btn {
+	padding: 0.6rem .7rem;
+}
+
+.btn:hover,
+.btn:active {
+	cursor: pointer;
+	background-color: var(--lighter-grey);
+	border-radius: 9px;
+
+	transition: all 0.5s ease;
+}

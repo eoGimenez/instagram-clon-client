@@ -135,8 +135,7 @@
 	.post--card--container {
 		min-width: 47rem;
 		margin-inline: auto;
+		border-radius: 9px;
 	}
 }
-@media (min-width: 48.12em) {
-	
-}
+
