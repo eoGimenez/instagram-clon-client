@@ -12,7 +12,6 @@
 	overflow: hidden;
 }
 .image--container {
-
 }
 
 .post--card--img {
@@ -38,9 +37,9 @@
 	color: var(--light-grey);
 	font-size: 1.3rem;
 	font-weight: 500;
-	line-height: 2;
+	line-height: 1;
 	letter-spacing: -0.02rem;
-	
+
 	margin: 1rem 0;
 }
 .postcard--comments--show--up--false {
@@ -57,6 +56,8 @@
 
 	object-fit: cover;
 	overflow: hidden;
+
+	transition: all 0.8s ease;
 }
 .postcard--comments--show--up--true {
 	display: flex;
@@ -79,8 +80,10 @@
 
 	transition: all 0.6s ease;
 }
+
 .postcard--container--new--comment {
 	display: flex;
+	flex-direction: column;
 	margin-top: auto;
 }
 .post--card--header {

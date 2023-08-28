@@ -50,6 +50,7 @@
 
 	object-fit: cover;
 	overflow: hidden;
+	
 	transition: all 0.6s ease;
 }
 .post--comment--response--container--true {

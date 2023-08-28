@@ -41,13 +41,16 @@ export default function PostCard({ post }) {
 				<div className='card--container'>
 					<h2 className='card--caption'>{post.caption}</h2>
 					<div className='postcard--container--comments--container'>
-						{post.comments.length === 0 ? (
-							<p className='postcard--container--comment--parraf' onClick={switchingGeneric}>{`Aun no hay comentarios`}</p>
-						) : (
+						{post.comments.length ? (
 							<p
 								className='postcard--container--comment--parraf'
 								onClick={switchingGeneric}
 							>{`Ver los ${post.comments.length} commentarios`}</p>
+						) : (
+							<p
+								className='postcard--container--comment--parraf'
+								onClick={switchingGeneric}
+							>{`Aun no hay comentarios`}</p>
 						)}
 						<div className={`postcard--comments--show--up--${isTrue}`}>
 							{isTrue
@@ -59,7 +62,15 @@ export default function PostCard({ post }) {
 								: null}
 							<div className='postcard--container--new--comment'>
 								{(isTrue && user) || (post.comments.length === 0 && user) ? (
-									<NewComment user={user} postId={post.id} />
+									<>
+										<NewComment user={user} postId={post.id} />
+										<p
+											className='postcard--container--comment--parraf'
+											onClick={switchingGeneric}
+										>
+											Cerrar comentarios
+										</p>
+									</>
 								) : null}
 							</div>
 						</div>
