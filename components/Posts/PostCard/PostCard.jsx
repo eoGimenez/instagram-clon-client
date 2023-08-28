@@ -25,7 +25,7 @@ export default function PostCard({ post }) {
 						className='post--card--author--avatar'
 					/>
 					<h3 className='post--card--author'>{post.author.username}</h3>
-					{user && user.id === post.author.id ? (
+					{user?.id === post.author.id ? (
 						<button className='post--card--header--btn--delete' onClick={handleDelete}>
 							Delete
 						</button>

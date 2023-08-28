@@ -23,10 +23,13 @@
 }
 .profile--img--container p {
 	font-size: 1.4rem;
+
+	cursor: pointer;
+	border-bottom: 1px solid transparent;
 }
 .profile--img--container p:hover {
-	transition: all 0.3s;
-	font-size: 1.6rem;
+	transition: all 0.3s ease;
+	border-bottom: 1px solid var(--primary-darker);
 }
 .profile--user--details--img {
 	width: 12rem;
@@ -36,6 +39,7 @@
 .profile--users--posts {
 	display: grid;
 
+	overflow: hidden;
 	grid-template-columns: repeat(4, 1fr);
 	margin-inline: auto;
 }
@@ -43,6 +47,14 @@
 .profile--users--post--img {
 	width: 10rem;
 	height: 10rem;
+
+	cursor: pointer;
+}
+.profile--users--post--img:hover {
+	transform: scale(1.02);
+
+	object-fit: fill;
+	transition: all 0.2s ease;
 }
 .profile--user--nouser {
 	font-weight: 600;
@@ -58,4 +70,10 @@
 .profile--user--nouser--parraf {
 	font-size: 1.3rem;
 	color: var(--links);
+}
+
+@media (min-width: 28.12em) {
+	.section--profile--user--details .wrapper {
+		justify-content: unset;
+	}
 }

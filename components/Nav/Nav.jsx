@@ -27,7 +27,7 @@ export default function Nav() {
 					alt='Instagram logo'
 					className='nav--logo'
 				/> */}
-				<Fragment className='nav--buttons--container'>
+				<div className='nav--buttons--container'>
 					{isLoggedIn ? (
 						<p className='btn' onClick={logOutUser}>
 							<ion-icon name='exit-outline'></ion-icon>
@@ -42,7 +42,7 @@ export default function Nav() {
 							</p>
 						</>
 					)}
-				</Fragment>
+				</div>
 			</nav>
 
 			<div className='headers--auth--modals'>

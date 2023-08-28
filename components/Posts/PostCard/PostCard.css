@@ -3,7 +3,7 @@
 }
 .section--post--card {
 	margin-bottom: 4.4rem;
-	/* margin-inline: auto; */
+	margin-inline: auto;
 }
 .post--card--container {
 	display: grid;
@@ -35,8 +35,16 @@
 	font-size: 1.2rem;
 	font-weight: 500;
 	text-transform: uppercase;
+	padding: 0.6rem 1.2rem;
+	border-radius: 9px;
 
 	cursor: pointer;
+}
+.post--card--header--btn--delete:hover,
+.post--card--header--btn--delete:active {
+	background-color: var(--lighter-grey);
+
+	transition: all 0.4s ease;
 }
 .image--container {
 }
@@ -82,6 +90,10 @@
 	right: 0;
 	transform: translateY(110%);
 
+	z-index: -10;
+	opacity: 0;
+	visibility: hidden;
+
 	object-fit: cover;
 	overflow: hidden;
 
@@ -102,6 +114,10 @@
 	left: 0;
 	right: 0;
 	transform: translateY(0%);
+
+	opacity: 1;
+	visibility: visible;
+	z-index: 4;
 
 	object-fit: fill;
 	overflow-y: auto;
@@ -138,4 +154,3 @@
 		border-radius: 9px;
 	}
 }
-

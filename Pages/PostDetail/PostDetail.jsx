@@ -3,16 +3,25 @@ import { usePost } from '../../hooks/usePost';
 import './PostDetail.css';
 import { AuthContext } from '../../context/auth.context';
 import { useParams } from 'react-router-dom';
+import { useDelete } from '../../hooks/useDelete';
+import { useSwitch } from '../../hooks/useSwitch';
+import PostComment from '../../components/Posts/PostComment/PostComment';
+import NewComment from '../../components/Posts/NewComment/NewComment';
 
 export default function PostDetail() {
 	const { postId } = useParams();
 	const { onePost, getPostById } = usePost();
 	const { user } = useContext(AuthContext);
+	const { deletePost } = useDelete();
+	const { isTrue, switchingGeneric } = useSwitch();
 
 	useEffect(() => {
 		getPostById({ postId });
 	}, [postId]);
 
+	const handleDelete = () => {
+		deletePost({ postId: onePost.id });
+	};
 	return (
 		<>
 			{onePost && (
@@ -24,8 +33,11 @@ export default function PostDetail() {
 							className='post--card--author--avatar'
 						/>
 						<h3 className='post--card--author'>{onePost.author.username}</h3>
-						{user && user.id === onePost.author.id ? (
-							<button className='post--card--header--btn--delete' onClick={null}>
+						{user?.id === onePost.author.id ? (
+							<button
+								className='post--card--header--btn--delete'
+								onClick={handleDelete}
+							>
 								Delete
 							</button>
 						) : null}
@@ -40,17 +52,39 @@ export default function PostDetail() {
 					<div className='card--container'>
 						<h2 className='card--caption'>{onePost.caption}</h2>
 						<div className='post--container--comments--container'>
-							{onePost.comments.length === 0 ? (
+							{onePost.comments.length ? (
 								<p
 									className='post--container--comment--parraf'
-									onClick={null}
-								>{`Aun no hay comentarios`}</p>
+									onClick={switchingGeneric}
+								>{`Ver los ${onePost.comments.length} commentarios`}</p>
 							) : (
 								<p
 									className='post--container--comment--parraf'
-									onClick={null}
-								>{`Ver los ${onePost.comments.length} commentarios`}</p>
+									onClick={switchingGeneric}
+								>{`Aun no hay comentarios`}</p>
 							)}
+							<div className={`postcard--comments--show--up--${isTrue}`}>
+								{isTrue
+									? onePost.comments
+											.map((comment) => (
+												<PostComment comment={comment} key={comment.id} />
+											))
+											.reverse()
+									: null}
+								<div className='postcard--container--new--comment'>
+									{(isTrue && user) || (onePost.comments.length === 0 && user) ? (
+										<>
+											<NewComment user={user} postId={onePost.id} />
+											<p
+												className='postcard--container--comment--parraf'
+												onClick={switchingGeneric}
+											>
+												Cerrar comentarios
+											</p>
+										</>
+									) : null}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

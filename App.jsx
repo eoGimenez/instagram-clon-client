@@ -4,11 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import HomePage from './components/HomePage/HomePage';
-import Profile from './components/User/Profile/Profile';
+import Profile from './Pages/Profile/Profile';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import PostDetail from './Pages/PostDetail/PostDetail';
-
-
 
 export default function App() {
 	return (

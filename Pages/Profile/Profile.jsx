@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
 import './Profile.css';
-import { usePost } from '../../../hooks/usePost';
+import { usePost } from '../../hooks/usePost';
 import { useNavigate, useParams } from 'react-router-dom';
-import Loading from '../../Loading/Loading';
-import { useUser } from '../../../hooks/useUser';
-import { useSwitch } from '../../../hooks/useSwitch';
-import { AuthContext } from '../../../context/auth.context';
-import UpdateUser from '../UpdateUser/UpdateUser';
+import Loading from '../../components/Loading/Loading';
+import { useUser } from '../../hooks/useUser';
+import { useSwitch } from '../../hooks/useSwitch';
+import { AuthContext } from '../../context/auth.context';
+import UpdateUser from '../../components/User/UpdateUser/UpdateUser';
 
 export default function Profile() {
 	const { user } = useContext(AuthContext);
@@ -20,7 +20,7 @@ export default function Profile() {
 		getUserPosts({ userId });
 		getUserById({ userId });
 	}, []);
-	console.log(userById);
+
 	return (
 		<section className='section--profile--user--details'>
 			{isLoading && <Loading />}
@@ -48,7 +48,9 @@ export default function Profile() {
 								src={post.image_url}
 								alt={`La imagen del post del usuario ${post.author.username} en el post numero: ${post.id}`}
 								className='profile--users--post--img'
-								onClick={() => {navigate(`/post/${post.id}`)}}
+								onClick={() => {
+									navigate(`/post/${post.id}`);
+								}}
 							/>
 						</div>
 					))}
