@@ -1,6 +1,5 @@
 import { useContext, useEffect } from 'react';
 import { usePost } from '../../hooks/usePost';
-import './PostDetail.css';
 import { AuthContext } from '../../context/auth.context';
 import { useParams } from 'react-router-dom';
 import { useDelete } from '../../hooks/useDelete';
@@ -51,15 +50,15 @@ export default function PostDetail() {
 					</div>
 					<div className='card--container'>
 						<h2 className='card--caption'>{onePost.caption}</h2>
-						<div className='post--container--comments--container'>
+						<div className='postcard--container--comments--container'>
 							{onePost.comments.length ? (
 								<p
-									className='post--container--comment--parraf'
+									className='postcard--container--comment--parraf'
 									onClick={switchingGeneric}
 								>{`Ver los ${onePost.comments.length} commentarios`}</p>
 							) : (
 								<p
-									className='post--container--comment--parraf'
+									className='postcard--container--comment--parraf'
 									onClick={switchingGeneric}
 								>{`Aun no hay comentarios`}</p>
 							)}

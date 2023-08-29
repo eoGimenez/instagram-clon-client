@@ -24,8 +24,9 @@
 
 .nav--buttons--container {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	gap: 3rem;
+	
 }
 
 .btn--nav {
@@ -57,5 +58,9 @@
 		gap: 3rem;
 		padding: 0 2rem;
 		/* z-index: 99; */
+	}
+	
+	.nav--buttons--container {
+		flex-direction: column;
 	}
 }
