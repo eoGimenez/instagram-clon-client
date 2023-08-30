@@ -1,6 +1,12 @@
+import { useState } from 'react';
+
 const API_URL = 'http://127.0.0.1:8000';
 
 export function useComment() {
+	const [comments, setComments] = useState([]);
+
+	console.log(comments);
+
 	const getComments = async ({ postId }) => {
 		fetch(`${API_URL}/comment/${postId}`)
 			.then((response) => {
@@ -10,8 +16,7 @@ export function useComment() {
 				throw response;
 			})
 			.then((data) => {
-				location.reload();
-				return data;
+				setComments(data);
 			})
 			.catch((err) => console.error(err));
 	};
@@ -55,15 +60,14 @@ export function useComment() {
 
 	const deleteComment = async ({ commentId, userId }) => {
 		const storedToken = localStorage.getItem('authToken');
-		
+
 		const requestOptions = {
 			method: 'DELETE',
 			headers: new Headers({
 				Authorization: `Bearer ${storedToken}`,
 			}),
 		};
-		
-		console.log(requestOptions)
+
 		fetch(`${API_URL}/comment/${commentId}`, requestOptions)
 			.then((response) => {
 				if (response.ok) {
@@ -77,5 +81,6 @@ export function useComment() {
 			.catch((err) => console.error(err));
 	};
 
-	return { createComment, deleteComment };
+
+	return { comments, createComment, deleteComment, getComments };
 }

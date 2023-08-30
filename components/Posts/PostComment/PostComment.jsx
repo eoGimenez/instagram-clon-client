@@ -14,6 +14,8 @@ export default function PostComment({ comment }) {
 	const handleDelete = () => {
 		deleteComment({ commentId: comment.id, userId: comment.author_comment.id });
 	};
+
+	console.log(comment)
 	return (
 		<div className='post--comment--container'>
 			{!isTrue && (

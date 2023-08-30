@@ -24,7 +24,9 @@ export default function NewResponse({ user, commentId }) {
 					<fieldset>
 						<input {...text} placeholder='Escriba su respuesta' />
 					</fieldset>
-					<button className='new--response--form--btn'>Responder</button>
+					<button className='new--response--form--btn' disabled={!text.value}>
+						Responder
+					</button>
 				</form>
 			)}
 		</>

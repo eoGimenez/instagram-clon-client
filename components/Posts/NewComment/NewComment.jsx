@@ -20,7 +20,9 @@ export default function NewComment({ user, postId }) {
 			<fieldset>
 				<input {...text} placeholder='Escriba un comentario' />
 			</fieldset>
-			<button className='new--comment--form--btn'>Comentar</button>
+			<button className='new--comment--form--btn' disabled={!text.value}>
+				Comentar
+			</button>
 		</form>
 	);
 }

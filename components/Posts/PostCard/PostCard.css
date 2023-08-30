@@ -3,7 +3,6 @@
 }
 .section--post--card {
 	margin-bottom: 4.4rem;
-	margin-inline: auto;
 }
 .post--card--container {
 	display: grid;
@@ -143,14 +142,21 @@
 	}
 }
 @media (min-width: 28.12em) {
+	.section--post--card {
+		margin-inline: auto;
+	}
 	.post--card--container {
-		min-width: 45rem;
+		margin-inline: auto;
+		border-radius: 9px;
 	}
 }
-@media (min-width: 29.37em) {
+/* @media (min-width: 29.37em) {
+	.section--post--card {
+		margin-inline: auto;
+	}
 	.post--card--container {
 		min-width: 47rem;
 		margin-inline: auto;
 		border-radius: 9px;
 	}
-}
+} */
