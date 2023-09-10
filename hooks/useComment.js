@@ -5,7 +5,7 @@ const API_URL = 'http://127.0.0.1:8000';
 export function useComment() {
 	const [comments, setComments] = useState([]);
 
-	console.log(comments);
+	// console.log(comments);
 
 	const getComments = async ({ postId }) => {
 		fetch(`${API_URL}/comment/${postId}`)
@@ -49,7 +49,7 @@ export function useComment() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					getComments({ postId });
+					return () => {getComments({postId})};
 				}
 			})
 			.catch((err) => console.error(err));

@@ -1,20 +1,26 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import PostComment from '../PostComment/PostComment';
 import './PostCard.css';
 import { AuthContext } from '../../../context/auth.context';
 import { useDelete } from '../../../hooks/useDelete';
 import { useSwitch } from '../../../hooks/useSwitch';
 import NewComment from '../NewComment/NewComment';
+// import { useComment } from '../../../hooks/useComment';
 
 export default function PostCard({ post }) {
 	const { user } = useContext(AuthContext);
 	const { deletePost } = useDelete();
 	const { isTrue, switchingGeneric } = useSwitch();
+	// const { comments, getComments } = useComment();
 
 	const handleDelete = () => {
 		deletePost({ postId: post.id });
 	};
 
+	// useEffect(() => {
+	// 	getComments({ postId: post.id });
+	// }, []);
+	// console.log(comments);
 	return (
 		<section className='section--post--card'>
 			<div className='post--card--container'>
@@ -53,13 +59,7 @@ export default function PostCard({ post }) {
 							>{`Aun no hay comentarios`}</p>
 						)}
 						<div className={`postcard--comments--show--up--${isTrue}`}>
-							{isTrue
-								? post.comments
-										.map((comment) => (
-											<PostComment comment={comment} key={comment.id} />
-										))
-										.reverse()
-								: null}
+							{isTrue ? <PostComment key={post.id} postId={post.id} /> : null}
 							<div className='postcard--container--new--comment'>
 								{(isTrue && user) || (post.comments.length === 0 && user) ? (
 									<>
@@ -79,4 +79,16 @@ export default function PostCard({ post }) {
 			</div>
 		</section>
 	);
+}
+
+{
+	/* comments
+		.map((comment) => (
+			<PostComment
+				postId={post.id}
+				comment={comment}
+				key={comment.id}
+			/>
+		))
+		.reverse() */
 }
