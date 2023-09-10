@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const API_URL = 'http://127.0.0.1:8000';
 
 export function useComment() {
 	const [comments, setComments] = useState([]);
 
-	// console.log(comments);
+	console.log(comments);
 
 	const getComments = async ({ postId }) => {
 		fetch(`${API_URL}/comment/${postId}`)
@@ -49,7 +49,7 @@ export function useComment() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					return () => {getComments({postId})};
+					setComments(data)
 				}
 			})
 			.catch((err) => console.error(err));
@@ -58,7 +58,7 @@ export function useComment() {
 		};
 	};
 
-	const deleteComment = async ({ commentId, userId }) => {
+	const deleteComment = async ({ commentId, userId, postId }) => {
 		const storedToken = localStorage.getItem('authToken');
 
 		const requestOptions = {
@@ -76,11 +76,10 @@ export function useComment() {
 				throw response;
 			})
 			.then((data) => {
-				location.reload();
+				getComments({ postId });
 			})
 			.catch((err) => console.error(err));
 	};
-
 
 	return { comments, createComment, deleteComment, getComments };
 }

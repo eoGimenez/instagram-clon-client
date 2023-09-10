@@ -4,7 +4,7 @@ import './NewComment.css';
 
 export default function NewComment({ user, postId }) {
 	const text = useField({ type: 'text', field: '' });
-	const { createComment } = useComment();
+	const { createComment, comments } = useComment();
 	const handleComment = (e) => {
 		e.preventDefault();
 		createComment({
@@ -14,7 +14,7 @@ export default function NewComment({ user, postId }) {
 			postId: postId,
 		});
 	};
-
+	console.log(comments);
 	return (
 		<form onSubmit={handleComment} className='new--comment--form'>
 			<fieldset>
