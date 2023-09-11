@@ -21,7 +21,7 @@ export default function Response({ response, commentId }) {
 			responseId: response.id,
 		});
 	};
-
+	console.log(response, commentId);
 	const deleteHandler = () => {
 		deleteResponse({
 			responseId: response.id,

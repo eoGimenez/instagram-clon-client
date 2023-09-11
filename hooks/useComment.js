@@ -4,7 +4,7 @@ const API_URL = 'http://127.0.0.1:8000';
 
 export function useComment() {
 	const [comments, setComments] = useState([]);
-
+	const [comment, setComment] = useState(null);
 
 	const getComments = async ({ postId }) => {
 		fetch(`${API_URL}/comment/${postId}`)
@@ -16,6 +16,20 @@ export function useComment() {
 			})
 			.then((data) => {
 				setComments(data);
+			})
+			.catch((err) => console.error(err));
+	};
+
+	const getOneComment = async ({ commentId }) => {
+		fetch(`${API_URL}/comment/onecomment/${commentId}`)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw response;
+			})
+			.then((data) => {
+				setComment(data);
 			})
 			.catch((err) => console.error(err));
 	};
@@ -48,7 +62,7 @@ export function useComment() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					setComments(data)
+					setComments(data);
 				}
 			})
 			.catch((err) => console.error(err));
@@ -80,5 +94,5 @@ export function useComment() {
 			.catch((err) => console.error(err));
 	};
 
-	return { comments, createComment, deleteComment, getComments };
+	return { comments, comment, createComment, deleteComment, getComments, getOneComment };
 }

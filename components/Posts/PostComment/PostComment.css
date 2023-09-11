@@ -85,7 +85,7 @@
 .post--comment--response--container {
 	
 }
-.post--comment--responses--user--comment--container {
+/* .post--comment--responses--user--comment--container {
 	display: flex;
 	gap: 1rem;
 	align-items: center;
@@ -101,3 +101,4 @@
 
 	cursor: pointer;
 }
+ */
