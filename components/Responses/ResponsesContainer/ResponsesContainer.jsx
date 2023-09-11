@@ -1,18 +1,8 @@
-import { useEffect } from 'react';
 import './ResponseContainer.css';
-import { useComment } from '../../../hooks/useComment';
 import NewResponse from '../NewResponse/NewResponse';
-import { useSwitch } from '../../../hooks/useSwitch';
 import Response from '../Response/Response';
 
-export default function ResponseContainer({ commentId, user }) {
-	const { comment, getOneComment } = useComment();
-	const { isTrue, switchingGeneric } = useSwitch();
-
-	useEffect(() => {
-		getOneComment({ commentId });
-	}, [commentId]);
-    console.log(commentId);
+export default function ResponseContainer({ comment, user }) {
 	return (
 		<>
 			{comment ? (
@@ -32,18 +22,12 @@ export default function ResponseContainer({ commentId, user }) {
 							<Response
 								response={response}
 								key={response.id}
-								commentId={commentId}
+								commentId={comment.id}
 							/>
 						))}
 						<div className='post--comment--response--container'>
-							<NewResponse user={user} commentId={commentId} />
+							<NewResponse user={user} commentId={comment.id} />
 						</div>
-					{/* 	<p
-							className='post--comment--response--container--parraf'
-							onClick={switchingGeneric}
-						>
-							Cerrar resuestas...
-						</p> */}
 					</>
 				) : (
 					<div className='post--comment--response--container'>
@@ -57,13 +41,7 @@ export default function ResponseContainer({ commentId, user }) {
 								<span>{comment.username}</span>: {comment.text}
 							</p>
 						</div>
-						<NewResponse user={user} commentId={commentId} />
-						{/* <p
-							className='post--comment--response--container--parraf'
-							onClick={switchingGeneric}
-						>
-							Volver a comentarios...
-						</p> */}
+						<NewResponse user={user} commentId={comment.id} />
 					</div>
 				)
 			) : null}

@@ -1,10 +1,8 @@
+import './PostComment.css';
 import { useContext, useEffect } from 'react';
 import { useSwitch } from '../../../hooks/useSwitch';
-import Response from '../../Responses/Response/Response';
-import './PostComment.css';
 import { AuthContext } from '../../../context/auth.context';
 import { useComment } from '../../../hooks/useComment';
-import NewResponse from '../../Responses/NewResponse/NewResponse';
 import NewComment from '../NewComment/NewComment';
 import ResponseContainer from '../../Responses/ResponsesContainer/ResponsesContainer';
 
@@ -16,7 +14,7 @@ export default function PostComment({ postId }) {
 
 	useEffect(() => {
 		getComments({ postId });
-	}, []);
+	}, [postId]);
 
 	const handleResponses = ({ commentId }) => {
 		switchingGeneric();
@@ -78,9 +76,7 @@ export default function PostComment({ postId }) {
 				</div>
 			))}
 			<div className={`post--comment--response--container--${isTrue}`}>
-				{isTrue && comment ? (
-					<ResponseContainer commentId={comment.id} user={user} />
-				) : null}
+				{isTrue && comment ? <ResponseContainer comment={comment} user={user} /> : null}
 				{isTrue ? (
 					<p
 						className='post--comment--response--container--parraf'
