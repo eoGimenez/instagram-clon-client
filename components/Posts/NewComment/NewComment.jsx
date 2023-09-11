@@ -2,19 +2,20 @@ import { useComment } from '../../../hooks/useComment';
 import { useField } from '../../../hooks/useField';
 import './NewComment.css';
 
-export default function NewComment({ user, postId }) {
+export default function NewComment({ user, postId, createComment }) {
 	const text = useField({ type: 'text', field: '' });
-	const { createComment, comments } = useComment();
+	const { comments } = useComment();
 	const handleComment = (e) => {
 		e.preventDefault();
+		const value = text.value;
+		text.value = '';
 		createComment({
 			username: user.username,
 			authorId: user.id,
-			text: text.value,
+			text: value,
 			postId: postId,
 		});
 	};
-	console.log(comments);
 	return (
 		<form onSubmit={handleComment} className='new--comment--form'>
 			<fieldset>
