@@ -1,8 +1,18 @@
 import './ResponseContainer.css';
 import NewResponse from '../NewResponse/NewResponse';
 import Response from '../Response/Response';
+import { useResponse } from '../../../hooks/useResponse';
+import { useComment } from '../../../hooks/useComment';
+import { useEffect } from 'react';
 
-export default function ResponseContainer({ comment, user }) {
+export default function ResponseContainer({ commentId, user }) {
+	const { updateResponse, deleteResponse } = useResponse();
+	const { comment, getOneComment } = useComment();
+
+	useEffect(() => {
+		getOneComment({ commentId });
+	}, []);
+
 	return (
 		<>
 			{comment ? (

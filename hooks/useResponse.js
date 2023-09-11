@@ -1,6 +1,10 @@
+import { useComment } from './useComment';
+
 const API_URL = 'http://127.0.0.1:8000';
 
 export function useResponse() {
+	const { getOneComment } = useComment();
+
 	const createResponse = async ({ text, commentId, userId, username }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
@@ -29,7 +33,7 @@ export function useResponse() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					location.reload();
+					getOneComment({ commentId });
 				}
 			})
 			.catch((err) => console.error(err));
@@ -66,7 +70,7 @@ export function useResponse() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					location.reload();
+					getOneComment({ commentId });
 				}
 			})
 			.catch((err) => console.error(err));
@@ -75,7 +79,7 @@ export function useResponse() {
 		};
 	};
 
-	const deleteResponse = async ({ responseId }) => {
+	const deleteResponse = async ({ responseId, commentId }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
 
@@ -95,7 +99,7 @@ export function useResponse() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					location.reload();
+					getOneComment({ commentId });
 				}
 			})
 			.catch((err) => console.error(err));

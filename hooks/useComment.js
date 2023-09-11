@@ -6,6 +6,8 @@ export function useComment() {
 	const [comments, setComments] = useState([]);
 	const [comment, setComment] = useState(null);
 
+	// console.log(comment)
+
 	const getComments = async ({ postId }) => {
 		fetch(`${API_URL}/comment/${postId}`)
 			.then((response) => {
