@@ -70,7 +70,7 @@ export function useResponse() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					getOneComment({ commentId });
+					console.log('Editado correctamente');
 				}
 			})
 			.catch((err) => console.error(err));
@@ -80,6 +80,7 @@ export function useResponse() {
 	};
 
 	const deleteResponse = async ({ responseId, commentId }) => {
+		console.log(responseId, commentId);
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
 
@@ -99,7 +100,7 @@ export function useResponse() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					getOneComment({ commentId });
+					console.log('Eliminado correctamente');
 				}
 			})
 			.catch((err) => console.error(err));

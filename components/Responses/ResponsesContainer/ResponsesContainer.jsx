@@ -6,12 +6,47 @@ import { useComment } from '../../../hooks/useComment';
 import { useEffect } from 'react';
 
 export default function ResponseContainer({ commentId, user }) {
-	const { updateResponse, deleteResponse } = useResponse();
+	const { updateResponse, deleteResponse, createResponse } = useResponse();
 	const { comment, getOneComment } = useComment();
 
 	useEffect(() => {
 		getOneComment({ commentId });
-	}, []);
+	}, [commentId]);
+
+	const deleteHandler = ({ responseId, commentId }) => {
+		deleteResponse({
+			responseId: responseId,
+			commentId: commentId,
+		});
+		setTimeout(() => {
+			getOneComment({ commentId });
+		}, 300);
+	};
+
+	const updateHandler = ({ text, responseId, commentId }) => {
+		updateResponse({
+			text: text,
+			commentId: commentId,
+			userId: user.id,
+			username: user.username,
+			responseId: responseId,
+		});
+		setTimeout(() => {
+			getOneComment({ commentId });
+		}, 100);
+	};
+
+	const handleResponse = ({ text, commentId }) => {
+		createResponse({
+			text: text,
+			commentId: commentId,
+			userId: user.id,
+			username: user.username,
+		});
+		setTimeout(() => {
+			getOneComment({ commentId });
+		}, 100);
+	};
 
 	return (
 		<>
@@ -33,10 +68,16 @@ export default function ResponseContainer({ commentId, user }) {
 								response={response}
 								key={response.id}
 								commentId={comment.id}
+								deleteHandler={deleteHandler}
+								updateHandler={updateHandler}
 							/>
 						))}
 						<div className='post--comment--response--container'>
-							<NewResponse user={user} commentId={comment.id} />
+							<NewResponse
+								user={user}
+								commentId={comment.id}
+								handleResponse={handleResponse}
+							/>
 						</div>
 					</>
 				) : (
@@ -51,7 +92,11 @@ export default function ResponseContainer({ commentId, user }) {
 								<span>{comment.username}</span>: {comment.text}
 							</p>
 						</div>
-						<NewResponse user={user} commentId={comment.id} />
+						<NewResponse
+							user={user}
+							commentId={comment.id}
+							handleResponse={handleResponse}
+						/>
 					</div>
 				)
 			) : null}

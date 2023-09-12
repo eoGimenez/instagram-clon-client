@@ -3,11 +3,11 @@ import { useField } from '../../../hooks/useField';
 import { useResponse } from '../../../hooks/useResponse';
 import './NewResponse.css';
 
-export default function NewResponse({ user, commentId }) {
+export default function NewResponse({ user, commentId, handleResponse }) {
 	const text = useField({ type: 'text', field: '' });
 	const { createResponse } = useResponse();
 
-	const handleResponse = (e) => {
+	/* 	const handleResponse = (e) => {
 		e.preventDefault();
 		createResponse({
 			text: text.value,
@@ -15,12 +15,17 @@ export default function NewResponse({ user, commentId }) {
 			userId: user.id,
 			username: user.username,
 		});
-	};
-
+	}; */
 	return (
 		<>
 			{user && (
-				<form onSubmit={handleResponse} className='new--response--form'>
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+						handleResponse({ text: text.value, commentId: commentId });
+					}}
+					className='new--response--form'
+				>
 					<fieldset>
 						<input {...text} placeholder='Escriba su respuesta' />
 					</fieldset>

@@ -32,6 +32,7 @@ export function useComment() {
 			})
 			.then((data) => {
 				setComment(data);
+				setComment(data);
 			})
 			.catch((err) => console.error(err));
 	};

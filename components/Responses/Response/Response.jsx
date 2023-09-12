@@ -3,30 +3,14 @@ import './Response.css';
 import { AuthContext } from '../../../context/auth.context';
 import { useSwitch } from '../../../hooks/useSwitch';
 import { useField } from '../../../hooks/useField';
-import { useResponse } from '../../../hooks/useResponse';
 
-export default function Response({ response, commentId }) {
+export default function Response({ response, commentId, deleteHandler, updateHandler }) {
 	const { user } = useContext(AuthContext);
 	const { isTrue, switchingGeneric } = useSwitch();
 	const text = useField({ type: 'text', field: '' });
-	const { updateResponse, deleteResponse } = useResponse();
 
-	const updateHandler = (e) => {
-		e.preventDefault();
-		updateResponse({
-			text: text.value,
-			commentId: commentId,
-			userId: user.id,
-			username: user.username,
-			responseId: response.id,
-		});
-	};
-	console.log(response, commentId);
-	const deleteHandler = () => {
-		deleteResponse({
-			responseId: response.id,
-		});
-	};
+
+
 	return (
 		<div className='response--container'>
 			{!isTrue ? (
@@ -40,14 +24,22 @@ export default function Response({ response, commentId }) {
 						<p className='response--container--parraf'>
 							<span>{response.username}</span>: {response.text}
 						</p>
-					{response.edited && <p className='response--container--edited'>Editado</p>}
+						{response.edited && <p className='response--container--edited'>Editado</p>}
 					</div>
 					{user && response.author_response.id == user.id && (
 						<div className='response--container--user--options'>
 							<p onClick={switchingGeneric} className='response--parraf--options'>
 								Editar...
 							</p>
-							<p onClick={deleteHandler} className='response--parraf--options'>
+							<p
+								onClick={() => {
+									deleteHandler({
+										responseId: response.id,
+										commentId: commentId,
+									});
+								}}
+								className='response--parraf--options'
+							>
 								Borrar...
 							</p>
 						</div>
@@ -55,7 +47,18 @@ export default function Response({ response, commentId }) {
 				</>
 			) : (
 				<>
-					<form onSubmit={updateHandler} className='response--edit--form'>
+					<form
+						onSubmit={(e) => {
+							e.preventDefault();
+							updateHandler({
+								text: text.value,
+								responseId: response.id,
+								commentId: commentId,
+							});
+							switchingGeneric()
+						}}
+						className='response--edit--form'
+					>
 						<fieldset>
 							<img
 								src={response.author_response.avatar}
