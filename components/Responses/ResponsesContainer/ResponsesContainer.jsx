@@ -51,7 +51,7 @@ export default function ResponseContainer({ commentId, user }) {
 	return (
 		<>
 			{comment ? (
-				comment.responses.length > 0 ? (
+				comment.responses.length ? (
 					<>
 						<div className='post--comment--responses--user--comment--container'>
 							<img

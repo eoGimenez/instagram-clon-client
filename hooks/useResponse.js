@@ -1,9 +1,7 @@
-import { useComment } from './useComment';
 
 const API_URL = 'http://127.0.0.1:8000';
 
 export function useResponse() {
-	const { getOneComment } = useComment();
 
 	const createResponse = async ({ text, commentId, userId, username }) => {
 		let isCancelled = false;
@@ -33,7 +31,7 @@ export function useResponse() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					getOneComment({ commentId });
+					console.log(data);
 				}
 			})
 			.catch((err) => console.error(err));
