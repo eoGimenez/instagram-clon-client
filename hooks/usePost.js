@@ -12,7 +12,7 @@ export function usePost() {
 		let isCancelled = false;
 		setIsLoading(true);
 
-		fetch(`${API_URL}/post/`)
+		fetch(`${API_URL}/post/?limit=5`)
 			.then((response) => {
 				if (response.ok) {
 					return response.json();
