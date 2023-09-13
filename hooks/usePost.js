@@ -2,17 +2,17 @@ import { useEffect, useState } from 'react';
 
 const API_URL = 'http://127.0.0.1:8000';
 
-export function usePost() {
+export function usePost({ limit }) {
 	const [posts, setPosts] = useState([]);
 	const [userPosts, setUserPosts] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [onePost, setOnePost] = useState(null);
-
-	const getPosts = async () => {
+	console.log(limit);
+	const getPosts = async ({ limit }) => {
 		let isCancelled = false;
 		setIsLoading(true);
 
-		fetch(`${API_URL}/post/?limit=5`)
+		fetch(`${API_URL}/post/?limit=${limit}`)
 			.then((response) => {
 				if (response.ok) {
 					return response.json();
@@ -126,8 +126,8 @@ export function usePost() {
 	};
 
 	useEffect(() => {
-		getPosts();
-	}, []);
+		getPosts({ limit });
+	}, [limit]);
 
 	return { posts, userPosts, isLoading, onePost, createPost, getUserPosts, getPostById };
 }
