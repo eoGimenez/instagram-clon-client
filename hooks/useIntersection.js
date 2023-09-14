@@ -1,21 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 
-export function useIntersection() {
+export function useIntersection({ once = true} = {}) {
 	const [newLimit, setNewLimit] = useState(5);
-	const [isNearScreen, setIsNearScreen] = useState(false)
+	const [isNearScreen, setIsNearScreen] = useState(false);
 	const elementRef = useRef();
 
 	console.log(newLimit);
 	useEffect(() => {
-		setIsNearScreen(false)
+		setIsNearScreen(false);
 		const onChange = (entries) => {
 			const element = entries[0];
 			if (element.isIntersecting) {
-				return (
-					setIsNearScreen(true),
-					setNewLimit((prevLimit) => prevLimit + 5)
-					);
-				
+				setIsNearScreen(true);
+				setNewLimit((prevLimit) => prevLimit + 5);
+				once && observer.disconnect()
 			}
 		};
 
