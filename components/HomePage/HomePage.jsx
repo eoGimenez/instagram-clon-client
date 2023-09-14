@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { useIntersection } from '../../hooks/useIntersection';
 import { usePost } from '../../hooks/usePost';
 import Loading from '../Loading/Loading';
@@ -7,12 +7,16 @@ import './HomePage.css';
 import debounce from 'just-debounce-it';
 
 export default function HomePage() {
-	const { elementRef, newLimit, isNearScreen } = useIntersection({ once: false });
-	const { posts, isLoading } = usePost({ limit: newLimit });
+	const externalRef = useRef();
+	const { newLimit } = useIntersection({
+		externalRef,
+		once: false,
+	});
+	const { posts, isLoading } = usePost({ limit: newLimit ? newLimit : null });
 
 	// const PostCard = React.lazy(() => import('../Posts/PostCard/PostCard'));
 
-/* 	const debounceHandleNewLimit = useCallback(debounce(newLimit, 500), []);
+	/* 	const debounceHandleNewLimit = useCallback(debounce(newLimit, 500), []);
 
 	useEffect(() => {
 		console.log('en el eff')
@@ -31,7 +35,7 @@ export default function HomePage() {
 				}
 				{isLoading ? <Loading /> : null}
 			</section>
-			<div ref={elementRef}></div>
+			<div ref={externalRef}></div>
 		</>
 	);
 }
