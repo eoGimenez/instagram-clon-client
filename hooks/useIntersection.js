@@ -2,14 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 
 export function useIntersection() {
 	const [newLimit, setNewLimit] = useState(5);
+	const [isNearScreen, setIsNearScreen] = useState(false)
 	const elementRef = useRef();
 
 	console.log(newLimit);
 	useEffect(() => {
+		setIsNearScreen(false)
 		const onChange = (entries) => {
 			const element = entries[0];
 			if (element.isIntersecting) {
-				return setNewLimit(newLimit + 5);
+				return (
+					setIsNearScreen(true),
+					setNewLimit((prevLimit) => prevLimit + 5)
+					);
+				
 			}
 		};
 
@@ -20,5 +26,5 @@ export function useIntersection() {
 		observer.observe(elementRef.current);
 	}, []);
 
-	return { elementRef, newLimit };
+	return { elementRef, newLimit, isNearScreen };
 }
