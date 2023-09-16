@@ -5,7 +5,7 @@ import { AuthContext } from '../../../context/auth.context';
 import { useDelete } from '../../../hooks/useDelete';
 import { useSwitch } from '../../../hooks/useSwitch';
 
-export default function PostCard({ post }) {
+export default function 	PostCard({ post }) {
 	const { user } = useContext(AuthContext);
 	const { deletePost } = useDelete();
 	const { isTrue, switchingGeneric } = useSwitch();

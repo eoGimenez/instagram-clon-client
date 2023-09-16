@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 const API_URL = 'http://127.0.0.1:8000';
 
 export function usePost({ limit = 5 } = {}) {
+
 	const [posts, setPosts] = useState([]);
 	const [userPosts, setUserPosts] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
@@ -129,5 +130,14 @@ export function usePost({ limit = 5 } = {}) {
 		getPosts({ limit });
 	}, [limit]);
 
-	return { posts, userPosts, isLoading, onePost, createPost, getUserPosts, getPostById };
+	return {
+		posts,
+		userPosts,
+		isLoading,
+		onePost,
+		createPost,
+		getUserPosts,
+		getPostById,
+		getPosts,
+	};
 }
