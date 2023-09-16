@@ -5,7 +5,6 @@ export function useIntersection({ externalRef, once = true } = {}) {
 	const [isNearScreen, setIsNearScreen] = useState(false);
 	const elementRef = useRef();
 
-
 	useEffect(() => {
 		let observer;
 
@@ -15,18 +14,20 @@ export function useIntersection({ externalRef, once = true } = {}) {
 		const onChange = (entries, observer) => {
 			const element = entries[0];
 			if (element.isIntersecting) {
-				setIsNearScreen(true);
-				setNewLimit((prevLimit) => prevLimit + 5);
-				once && observer.disconnect();
+				setTimeout(() => {
+					setIsNearScreen(true);
+					setNewLimit((prevLimit) => prevLimit + 5);
+					once && observer.disconnect();
+				}, 200);
 			} else {
-				!once && setIsNearScreen(false)
+				!once && setIsNearScreen(false);
 			}
 		};
 
 		observer = new IntersectionObserver(onChange, {
 			rootMargin: '100px',
 		});
-1
+		1;
 		element ? observer.observe(element) : null;
 	}, []);
 

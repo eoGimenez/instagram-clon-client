@@ -8,7 +8,6 @@ export function usePost({ limit = 5 } = {}) {
 	const [userPosts, setUserPosts] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [onePost, setOnePost] = useState(null);
-	console.log(limit);
 	const getPosts = async ({ limit }) => {
 		let isCancelled = false;
 		setIsLoading(true);

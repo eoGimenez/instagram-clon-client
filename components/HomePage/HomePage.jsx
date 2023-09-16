@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useIntersection } from '../../hooks/useIntersection';
 import { usePost } from '../../hooks/usePost';
 import Loading from '../Loading/Loading';
 import PostCard from '../Posts/PostCard/PostCard';
 import './HomePage.css';
-import debounce from 'just-debounce-it';
+// import debounce from 'just-debounce-it';
 
 export default function HomePage() {
 	const externalRef = useRef();
