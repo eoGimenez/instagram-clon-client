@@ -26,11 +26,7 @@ export function useResponse() {
 				}
 				throw response;
 			})
-			.then((data) => {
-				if (!isCancelled) {
-					// console.log(data);
-				}
-			})
+			.then((data) => {})
 			.catch((err) => console.error(err));
 		return () => {
 			isCancelled = true;

@@ -99,6 +99,7 @@ export function useSignup({ username, password, rePassword, email }) {
 			password: password,
 			re_password: rePassword,
 			email: email,
+			avatar: "",
 		});
 
 		const requestOptions = {
