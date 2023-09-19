@@ -21,8 +21,6 @@ export default function PostComment({ postId }) {
 		getOneComment({ commentId });
 	};
 
-	console.log(comment);
-
 	return (
 		<>
 			{comments.map((comment) => (
@@ -78,7 +76,15 @@ export default function PostComment({ postId }) {
 				</div>
 			))}
 			<div className={`post--comment--response--container--${isTrue}`}>
-				{isTrue && comment ? <ResponseContainer commentId={comment.id} user={user} handleResponses={() => {handleResponses}} /> : null}
+				{isTrue && comment ? (
+					<ResponseContainer
+						commentId={comment.id}
+						user={user}
+						handleResponses={() => {
+							handleResponses;
+						}}
+					/>
+				) : null}
 				{isTrue ? (
 					<p
 						className='post--comment--response--container--parraf'

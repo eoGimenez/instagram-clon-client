@@ -1,8 +1,8 @@
 import React, { Suspense, useRef } from 'react';
 import { useIntersection } from '../../hooks/useIntersection';
 import { usePost } from '../../hooks/usePost';
-import Loading from '../Loading/Loading';
-import PostCard from '../Posts/PostCard/PostCard';
+import Loading from '../../components/Loading/Loading';
+import PostCard from '../../components/Posts/PostCard/PostCard';
 import './HomePage.css';
 // import debounce from 'just-debounce-it';
 
@@ -13,7 +13,6 @@ export default function HomePage() {
 		once: false,
 	});
 	const { posts, isLoading } = usePost({ limit: newLimit ? newLimit : null });
-	console.log(isNearScreen);
 	// const PostCard = React.lazy(() => import('../Posts/PostCard/PostCard'));
 
 	/* 	const debounceHandleNewLimit = useCallback(debounce(getPosts, 500), []);

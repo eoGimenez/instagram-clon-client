@@ -28,7 +28,7 @@ export function useResponse() {
 			})
 			.then((data) => {
 				if (!isCancelled) {
-					console.log(data);
+					// console.log(data);
 				}
 			})
 			.catch((err) => console.error(err));
@@ -75,7 +75,6 @@ export function useResponse() {
 	};
 
 	const deleteResponse = async ({ responseId, commentId }) => {
-		console.log(responseId, commentId);
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
 
