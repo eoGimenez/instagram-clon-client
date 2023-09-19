@@ -75,6 +75,7 @@ export function usePost({ limit = 5 } = {}) {
 
 	const getUserPosts = async ({ userId }) => {
 		let isCancelled = false;
+
 		setIsLoading(true);
 
 		fetch(`${API_URL}/post/user_posts/${userId}`)
@@ -101,7 +102,7 @@ export function usePost({ limit = 5 } = {}) {
 	const getPostById = async ({ postId }) => {
 		let isCancelled = false;
 		setIsLoading(true);
-
+		console.log("ESTOY FUNCIONANDO OK");
 		fetch(`${API_URL}/post/${postId}`)
 			.then((response) => {
 				if (response.ok) {

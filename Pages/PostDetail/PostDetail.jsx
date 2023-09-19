@@ -63,26 +63,15 @@ export default function PostDetail() {
 								>{`Aun no hay comentarios`}</p>
 							)}
 							<div className={`postcard--comments--show--up--${isTrue}`}>
-								{isTrue
-									? onePost.comments
-											.map((comment) => (
-												<PostComment comment={comment} key={comment.id} />
-											))
-											.reverse()
-									: null}
-								<div className='postcard--container--new--comment'>
-									{(isTrue && user) || (onePost.comments.length === 0 && user) ? (
-										<>
-											<NewComment user={user} postId={onePost.id} />
-											<p
-												className='postcard--container--comment--parraf'
-												onClick={switchingGeneric}
-											>
-												Cerrar comentarios
-											</p>
-										</>
-									) : null}
-								</div>
+								{isTrue ? <PostComment postId={onePost.id} /> : null}
+								{isTrue ? (
+									<p
+										className='postcard--container--comment--parraf'
+										onClick={switchingGeneric}
+									>
+										Cerrar comentarios
+									</p>
+								) : null}
 							</div>
 						</div>
 					</div>
@@ -91,3 +80,15 @@ export default function PostDetail() {
 		</>
 	);
 }
+
+/* {(isTrue && user) || (onePost.comments.length === 0 && user) ? (
+	<>
+		<NewComment user={user} postId={onePost.id} />
+		<p
+			className='postcard--container--comment--parraf'
+			onClick={switchingGeneric}
+		>
+			Cerrar comentarios
+		</p>
+	</>
+) : null} */

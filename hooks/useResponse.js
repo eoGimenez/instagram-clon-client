@@ -1,8 +1,6 @@
-
 const API_URL = 'http://127.0.0.1:8000';
 
 export function useResponse() {
-
 	const createResponse = async ({ text, commentId, userId, username }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
@@ -10,7 +8,6 @@ export function useResponse() {
 		const json_string = JSON.stringify({
 			username: username,
 			text: text,
-			comment_id: commentId,
 			author_id: userId,
 		});
 
@@ -22,7 +19,7 @@ export function useResponse() {
 			}),
 			body: json_string,
 		};
-		fetch(`${API_URL}/response/`, requestOptions)
+		fetch(`${API_URL}/response/${commentId}`, requestOptions)
 			.then((response) => {
 				if (response.ok) {
 					return response.json();
