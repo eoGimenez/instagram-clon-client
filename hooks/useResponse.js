@@ -1,9 +1,11 @@
-const API_URL = 'http://127.0.0.1:8000';
+const API_URL = `${import.meta.env.VITE_API_URL}`;
 
 export function useResponse() {
+
 	const createResponse = async ({ text, commentId, userId, username }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
+		console.log('CREANDO');
 
 		const json_string = JSON.stringify({
 			username: username,

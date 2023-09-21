@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 
-const API_URL = 'http://127.0.0.1:8000';
+const API_URL = `${import.meta.env.VITE_API_URL}`;
 
 export function usePost({ limit = 5 } = {}) {
 	const [posts, setPosts] = useState([]);
 	const [userPosts, setUserPosts] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [onePost, setOnePost] = useState(null);
-	const getPosts = async ({ limit }) => {
+
+	const getPosts = ({ limit }) => {
 		let isCancelled = false;
 		setIsLoading(true);
 
@@ -54,26 +55,18 @@ export function usePost({ limit = 5 } = {}) {
 			body: json_string,
 		};
 
-		fetch(`${API_URL}/post/`, requestOptions)
-			.then((response) => {
-				if (response.ok) {
-					return response.json();
-				}
-				throw response;
-			})
-			.then((data) => {
-				if (!isCancelled) {
-					location.reload();
-				}
-			})
-			.catch((err) => console.error(err));
-
+		const response = await fetch(`${API_URL}/post/`, requestOptions);
+		if (response.ok) {
+			location.reload();
+		} else {
+			alert('Error al publicar, compruebe que todos los campos son correctos!');
+		}
 		return () => {
 			isCancelled = true;
 		};
 	};
 
-	const getUserPosts = async ({ userId }) => {
+	const getUserPosts = ({ userId }) => {
 		let isCancelled = false;
 
 		setIsLoading(true);
@@ -99,10 +92,10 @@ export function usePost({ limit = 5 } = {}) {
 		};
 	};
 
-	const getPostById = async ({ postId }) => {
+	const getPostById = ({ postId }) => {
 		let isCancelled = false;
 		setIsLoading(true);
-		
+
 		fetch(`${API_URL}/post/${postId}`)
 			.then((response) => {
 				if (response.ok) {
