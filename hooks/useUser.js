@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { json } from 'react-router-dom';
 
 const API_URL = `${import.meta.env.VITE_API_URL}`;
 
@@ -7,7 +6,7 @@ export function useUser() {
   const [userById, setUserById] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const getUserById = async ({ userId }) => {
+  const getUserById = ({ userId }) => {
     let isCancelled = false;
     setIsLoading(true);
 
