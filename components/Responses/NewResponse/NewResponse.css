@@ -1,23 +1,22 @@
 .new--response--form {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	/* justify-content: center; */
-	
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 .new--response--form fieldset {
-	border: none;
+  border: none;
 }
 
 .new--response--form input {
-	max-width: 18ch;
-	border: none;
-	border-bottom: 1px solid var(--primary-font);
+  max-width: 18ch;
+  border: none;
+  border-bottom: 1px solid var(--primary-font);
 }
 
 .new--response--form button {
-	border: none;
-	background-color: #fff;
-	cursor: pointer;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
 }

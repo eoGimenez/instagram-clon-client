@@ -1,22 +1,22 @@
 .new--comment--form {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .new--comment--form fieldset {
-	border: none;
+  border: none;
 }
 
 .new--comment--form input {
-	max-width: 18ch;
-	border: none;
-	border-bottom: 1px solid var(--primary-font);
+  max-width: 18ch;
+  border: none;
+  border-bottom: 1px solid var(--primary-font);
 }
 
 .new--comment--form button {
-	border: none;
-	background-color: #fff;
-	cursor: pointer;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
 }

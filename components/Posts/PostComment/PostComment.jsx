@@ -7,103 +7,113 @@ import NewComment from '../NewComment/NewComment';
 import ResponseContainer from '../../Responses/ResponsesContainer/ResponsesContainer';
 
 export default function PostComment({ postId }) {
-	const { isTrue, switchingGeneric } = useSwitch();
-	const { user } = useContext(AuthContext);
-	const { deleteComment, comments, getComments, createComment, getOneComment, comment } =
-		useComment();
+  const { isTrue, switchingGeneric } = useSwitch();
+  const { user } = useContext(AuthContext);
+  const {
+    deleteComment,
+    comments,
+    getComments,
+    createComment,
+    getOneComment,
+    comment,
+  } = useComment();
 
-	useEffect(() => {
-		getComments({ postId });
-	}, [postId]);
+  useEffect(() => {
+    getComments({ postId });
+  }, [postId]);
 
-	const handleResponses = ({ commentId }) => {
-		switchingGeneric();
-		getOneComment({ commentId });
-	};
+  const handleResponses = ({ commentId }) => {
+    switchingGeneric();
+    getOneComment({ commentId });
+  };
 
-	return (
-		<>
-			{comments.map((comment) => (
-				<div key={comment.id} className='post--comment--container'>
-					{!isTrue && (
-						<>
-							<div className='post--comment--user--container'>
-								<img
-									src={comment.author_comment.avatar}
-									alt={`The avatar of the user: ${comment.username}`}
-									className='response--author--avatar'
-								/>
-								<p className='comment--author'>
-									<span>{comment.username}</span>: {comment.text}
-								</p>
-							</div>
-							<div className='comment--container--options'>
-								{user &&
-									(comment.responses.length > 0 ? (
-										<p
-											onClick={() => {
-												handleResponses({ commentId: comment.id });
-											}}
-											className='response--parraf'
-										>{`Leer respuetas (${comment.responses.length})`}</p>
-									) : (
-										<p
-											className='response--parraf'
-											onClick={() => {
-												handleResponses({ commentId: comment.id });
-											}}
-										>
-											Responder...
-										</p>
-									))}
-								{user && comment.author_comment.id == user.id && (
-									<p
-										onClick={() => {
-											deleteComment({
-												commentId: comment.id,
-												postId: postId,
-											});
-										}}
-										className='response--parraf'
-									>
-										Eliminar...
-									</p>
-								)}
-							</div>
-						</>
-					)}
-				</div>
-			))}
-			<div className={`post--comment--response--container--${isTrue}`}>
-				{isTrue && comment ? (
-					<ResponseContainer
-						commentId={comment.id}
-						user={user}
-						handleResponses={() => {
-							handleResponses;
-						}}
-					/>
-				) : null}
-				{isTrue ? (
-					<p
-						className='post--comment--response--container--parraf'
-						onClick={switchingGeneric}
-					>
-						Volver a comentarios...
-					</p>
-				) : null}
-			</div>
-			<div className='postcard--container--new--comment'>
-				{user ? (
-					<NewComment user={user} postId={postId} createComment={createComment} />
-				) : null}
-			</div>
-		</>
-	);
+  return (
+    <>
+      {comments.map((comment) => (
+        <div key={comment.id} className='post--comment--container'>
+          {!isTrue && (
+            <>
+              <div className='post--comment--user--container'>
+                <img
+                  src={comment.author_comment.avatar}
+                  alt={`The avatar of the user: ${comment.username}`}
+                  className='response--author--avatar'
+                />
+                <p className='comment--author'>
+                  <span>{comment.username}</span>: {comment.text}
+                </p>
+              </div>
+              <div className='comment--container--options'>
+                {user &&
+                  (comment.responses.length > 0 ? (
+                    <p
+                      onClick={() => {
+                        handleResponses({ commentId: comment.id });
+                      }}
+                      className='response--parraf'
+                    >{`Leer respuetas (${comment.responses.length})`}</p>
+                  ) : (
+                    <p
+                      className='response--parraf'
+                      onClick={() => {
+                        handleResponses({ commentId: comment.id });
+                      }}
+                    >
+                      Responder...
+                    </p>
+                  ))}
+                {user && comment.author_comment.id == user.id && (
+                  <p
+                    onClick={() => {
+                      deleteComment({
+                        commentId: comment.id,
+                        postId: postId,
+                      });
+                    }}
+                    className='response--parraf'
+                  >
+                    Eliminar...
+                  </p>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+      ))}
+      <div className={`post--comment--response--container--${isTrue}`}>
+        {isTrue && comment ? (
+          <ResponseContainer
+            commentId={comment.id}
+            user={user}
+            handleResponses={() => {
+              handleResponses;
+            }}
+          />
+        ) : null}
+        {isTrue ? (
+          <p
+            className='post--comment--response--container--parraf'
+            onClick={switchingGeneric}
+          >
+            Volver a comentarios...
+          </p>
+        ) : null}
+      </div>
+      <div className='postcard--container--new--comment'>
+        {user ? (
+          <NewComment
+            user={user}
+            postId={postId}
+            createComment={createComment}
+          />
+        ) : null}
+      </div>
+    </>
+  );
 }
 
 {
-	/* 
+  /* 
  REFACTORIZANDO LAS RESPUESTAS
 
 (
@@ -160,7 +170,7 @@ export default function PostComment({ postId }) {
 ) */
 }
 {
-	/*
+  /*
 	
 	REFACTORIZANDO LOS COMENTARIOS
 	

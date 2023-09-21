@@ -1,95 +1,95 @@
 .section--uploader--img {
-	margin-inline: auto;
-	margin-top: 10rem;
-	text-align: center;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 500;
+  margin-inline: auto;
+  margin-top: 10rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
 }
 
 .uploader--container {
-	padding: 1rem 3rem;
-	border-radius: 1rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .uploader--container > h1 {
-	font-size: 1.8rem;
-	text-align: center;
-	line-height: 1.7;
-	font-weight: 500;
+  font-size: 1.8rem;
+  text-align: center;
+  line-height: 1.7;
+  font-weight: 500;
 }
 
 .uploader--container > p {
-	font-size: 1rem;
-	line-height: 1.5;
-	margin-bottom: 1.4rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.4rem;
 }
 
 .uploader--container {
-	margin-inline: auto;
+  margin-inline: auto;
 }
 
 .img--handler--container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .img--handler--container > h3 {
-	font-size: 1.2rem;
-	line-height: 1.8;
-	font-weight: 500;
-	color: var(--primary-font);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-weight: 500;
+  color: var(--primary-font);
 }
 
 .img--handler {
-	max-width: 30rem;
-	max-height: 20rem;
-	padding-block: 2.5rem;
-	border: 2px dashed var(--drag--border);
-	background-color: var(--drag--back);
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	gap: 1rem;
-	cursor: pointer;
+  max-width: 30rem;
+  max-height: 20rem;
+  padding-block: 2.5rem;
+  border: 2px dashed var(--drag--border);
+  background-color: var(--drag--back);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  cursor: pointer;
 }
 
 .img--handler > svg {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .img--handler > p {
-	font-size: 1.2rem;
-	font-weight: 500;
-	line-height: 1.8;
-	color: var(--primary-font);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--primary-font);
 }
 
 .text--align--center {
-	text-align: center !important;
+  text-align: center !important;
 }
 
 .img--buttom--decoration {
-	display: inline-block;
-	padding: 1rem 1.5rem;
-	background-color: var(--primary-light);
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-light);
 
-	border-radius: 8px;
-	cursor: pointer;
-	font-size: 1.2rem;
-	font-weight: 500;
-	margin-inline: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-inline: auto;
 
-	transition: 0.3s;
+  transition: 0.3s;
 }
 
 .img--buttom--decoration:hover,
 .img--buttom--decoration:active {
-	background-color: var(--primary-dark);
-	color: var(--lighter-grey);
+  background-color: var(--primary-dark);
+  color: var(--lighter-grey);
 }

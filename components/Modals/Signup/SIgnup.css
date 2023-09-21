@@ -1,61 +1,61 @@
 .modal--signup--container--false {
-	position: absolute;
-	background-color: #fff;
-	top: 20rem;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: -1;
+  position: absolute;
+  background-color: #fff;
+  top: 20rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 .modal--signup--container--true {
-	position: fixed;
-	background-color: #fff;
-	top: 20rem;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 99;
-	border-radius: 9px;
-	display: flex;
-	flex-direction: column;
+  position: fixed;
+  background-color: #fff;
+  top: 20rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
 
-	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .modal--logo {
-	justify-self: center;
-	align-self: center;
-	max-width: 12rem;
+  justify-self: center;
+  align-self: center;
+  max-width: 12rem;
 }
 
 .modal--signup--form {
-	padding: 2rem 3rem 1rem 3rem;
-	display: flex;
-	flex-direction: column;
+  padding: 2rem 3rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
 }
 .modal--signup--form fieldset {
-	border: none;
+  border: none;
 }
 
 .modal--signup--form input {
-	border: none;
-	border-bottom: 1px solid var(--primary-font);
+  border: none;
+  border-bottom: 1px solid var(--primary-font);
 }
 
 .modal--signup--form button {
-	border: none;
-	background-color: #fff;
-	justify-self: center;
-	align-self: center;
-	margin-top: 1rem;
+  border: none;
+  background-color: #fff;
+  justify-self: center;
+  align-self: center;
+  margin-top: 1rem;
 }
 
 .modal--signup--form p {
-	justify-self: center;
-	align-self: center;
-	font-size: 1rem;
+  justify-self: center;
+  align-self: center;
+  font-size: 1rem;
 }
 
 .modal--signup--form span {
-	color: blue;
-	border-bottom: 0.1px solid blue;
+  color: blue;
+  border-bottom: 0.1px solid blue;
 }

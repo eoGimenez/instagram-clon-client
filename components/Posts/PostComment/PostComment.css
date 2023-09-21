@@ -1,89 +1,87 @@
 .post--comment--container {
-	display: flex;
-	flex-direction: column;
-	position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 .post--comment--user--container {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .comment--author span {
-	font-weight: 600;
-	letter-spacing: -0.03rem;
-	font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.03rem;
+  font-size: 1.3rem;
 }
 .comment--author {
-	margin: 0.3rem 0;
-	font-size: 1.3rem;
+  margin: 0.3rem 0;
+  font-size: 1.3rem;
 }
 .comment--container--options {
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .response--parraf {
-	margin: 0.5rem 0;
-	color: var(--light-grey);
-	font-size: 1.3rem;
-	letter-spacing: -0.03rem;
-	line-height: 2;
-	font-weight: 400;
+  margin: 0.5rem 0;
+  color: var(--light-grey);
+  font-size: 1.3rem;
+  letter-spacing: -0.03rem;
+  line-height: 2;
+  font-weight: 400;
 
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .post--comment--response--container--false {
-	height: 14rem;
-	padding: 1rem 2rem;
-	background-color: #fff;
+  height: 14rem;
+  padding: 1rem 2rem;
+  background-color: #fff;
 
-	z-index: -10;
-	opacity: 0;
-	visibility: hidden;
+  z-index: -10;
+  opacity: 0;
+  visibility: hidden;
 
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
 
-	object-fit: cover;
-	overflow: hidden;
+  object-fit: cover;
+  overflow: hidden;
 
-	transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 .post--comment--response--container--true {
-	display: flex;
-	padding: 1rem;
-	flex-direction: column;
-	background-color: #fff;
-	
-	opacity: 1;
-	visibility: visible;
-	z-index: 4;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  background-color: #fff;
 
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	transform: translateY(0%);
+  opacity: 1;
+  visibility: visible;
+  z-index: 4;
 
-	object-fit: fill;
-	overflow-y: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateY(0%);
 
-	transition: all 0.6s ease;
+  object-fit: fill;
+  overflow-y: auto;
+
+  transition: all 0.6s ease;
 }
 
 .post--comment--response--container--true:last-child {
-	border-bottom: 1px solid var(--lighter-grey);
-	margin-bottom: 1rem;
+  border-bottom: 1px solid var(--lighter-grey);
+  margin-bottom: 1rem;
 }
 
 .post--comment--response--container {
-	
 }
 /* .post--comment--responses--user--comment--container {
 	display: flex;

@@ -1,81 +1,80 @@
 .response--container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1rem;
 }
 .response--container:first-child {
-	margin-top: 0.3rem;
+  margin-top: 0.3rem;
 }
 .response--info {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 .response--author--avatar {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 999px;
-	margin-bottom: 0.4rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
 }
 .response--container--parraf {
-	line-height: 2;
-	font-weight: 500;
-	font-size: 1.3rem;
-	letter-spacing: -0.03rem;
-	margin-left: 1rem;
+  line-height: 2;
+  font-weight: 500;
+  font-size: 1.3rem;
+  letter-spacing: -0.03rem;
+  margin-left: 1rem;
 }
 .response--container--parraf span {
-	font-weight: 600;
-	font-size: 1.3rem;
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 .response--container--edited {
-	color: var(--light-grey);
-	font-size: 1.1rem;
-	margin-left: 1rem;
-	letter-spacing: -0.03rem;
-	line-height: 2;
-	font-weight: 400;
-	margin-left: auto;
-	color: var(--light-grey);
+  color: var(--light-grey);
+  font-size: 1.1rem;
+  margin-left: 1rem;
+  letter-spacing: -0.03rem;
+  line-height: 2;
+  font-weight: 400;
+  margin-left: auto;
+  color: var(--light-grey);
 }
 
 .response--parraf--options {
-	color: var(--light-grey);
-	font-size: 1.3rem;
-	margin-left: 1rem;
-	letter-spacing: -0.03rem;
-	line-height: 2;
-	font-weight: 400;
-	margin-left: 1rem;
+  color: var(--light-grey);
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  letter-spacing: -0.03rem;
+  line-height: 2;
+  font-weight: 400;
+  margin-left: 1rem;
 
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .response--container--user--options {
-	display: flex;
-	margin-bottom: 1rem;
+  display: flex;
+  margin-bottom: 1rem;
 }
 
 .response--edit--form {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .response--edit--form fieldset {
-	display: flex;
-	gap: 1rem;
-	border: none;
+  display: flex;
+  gap: 1rem;
+  border: none;
 }
 
 .response--edit--form input {
-	max-width: 15ch;
-	border: none;
-	border-bottom: 1px solid var(--primary-font);
+  max-width: 15ch;
+  border: none;
+  border-bottom: 1px solid var(--primary-font);
 }
 
 .response--edit--form button {
-	border: none;
-	background-color: #fff;
+  border: none;
+  background-color: #fff;
 }

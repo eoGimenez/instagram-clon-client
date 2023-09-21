@@ -1,35 +1,35 @@
 .profile--update--user--img {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile--update--user--img fieldset {
-	border: none;
+  border: none;
 }
 
 .profile--update--user--img input {
-	max-width: 18ch;
-	border: none;
-	border-bottom: 1px solid var(--primary-font);
+  max-width: 18ch;
+  border: none;
+  border-bottom: 1px solid var(--primary-font);
 }
 
 .profile--update--user--img button {
-	font-size: 1.2rem;
-	letter-spacing: -0.03rem;
-	font-weight: 600;
-	color: var(--primary-darker);
+  font-size: 1.2rem;
+  letter-spacing: -0.03rem;
+  font-weight: 600;
+  color: var(--primary-darker);
 
-	border: none;
-	margin-inline: auto;
-	padding: 1rem 1.5rem;
-	border-radius: 9px;
-	background-color: var(--drag--border);
+  border: none;
+  margin-inline: auto;
+  padding: 1rem 1.5rem;
+  border-radius: 9px;
+  background-color: var(--drag--border);
 
-	transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .profile--update--user--img button:active,
 .profile--update--user--img button:hover {
-	color: var(--primary-font);
-	background-color: var(--drag--back);
+  color: var(--primary-font);
+  background-color: var(--drag--back);
 }

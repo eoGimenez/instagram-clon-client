@@ -4,43 +4,43 @@ import { useVerify } from '../hooks/useAuth';
 const AuthContext = createContext();
 
 function AuthProviderWrapper({ children }) {
-	const { user, isLoggedIn, isLoading, verifyUser } = useVerify();
+  const { user, isLoggedIn, isLoading, verifyUser } = useVerify();
 
-	const storeToken = (token) => {
-		localStorage.setItem('authToken', token);
-	};
+  const storeToken = (token) => {
+    localStorage.setItem('authToken', token);
+  };
 
-	const removeToken = () => {
-		localStorage.removeItem('authToken');
-	};
+  const removeToken = () => {
+    localStorage.removeItem('authToken');
+  };
 
-	const verify = () => {
-		verifyUser();
-	};
+  const verify = () => {
+    verifyUser();
+  };
 
-	const logOutUser = () => {
-		removeToken();
-		verify();
-	};
+  const logOutUser = () => {
+    removeToken();
+    verify();
+  };
 
-	useEffect(() => {
-		verify();
-	}, []);
+  useEffect(() => {
+    verify();
+  }, []);
 
-	return (
-		<AuthContext.Provider
-			value={{
-				isLoggedIn,
-				isLoading,
-				user,
-				storeToken,
-				verify,
-				logOutUser,
-			}}
-		>
-			{children}
-		</AuthContext.Provider>
-	);
+  return (
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        isLoading,
+        user,
+        storeToken,
+        verify,
+        logOutUser,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export { AuthProviderWrapper, AuthContext };

@@ -1,50 +1,49 @@
 :root {
-	/* BUSCAR COLORES DE INSTAGRAM */
-	--primary-light: #e96262;
-	--primary-dark: #8d3939;
+  /* BUSCAR COLORES DE INSTAGRAM */
+  --primary-light: #e96262;
+  --primary-dark: #8d3939;
 
-	--primary-font: #555;
-	--primary-darker: #181818;
-	--lighter-grey: #ddd;
-	--light-grey: #6e6e6e;
+  --primary-font: #555;
+  --primary-darker: #181818;
+  --lighter-grey: #ddd;
+  --light-grey: #6e6e6e;
 
-	--links: rgb(61, 61, 140);
+  --links: rgb(61, 61, 140);
 
-	--drag--border: #97bef4;
-	--drag--back: #f6f8fb;
+  --drag--border: #97bef4;
+  --drag--back: #f6f8fb;
 }
 body {
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	color: var(--primary-font);
-	margin: 0;
-	padding: 0;
-	position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: var(--primary-font);
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 html {
-	font-size: 62.5%;
-	scroll-behavior: smooth;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 *:focus {
-	outline: none;
-	box-shadow: 0 0 0 0 0.4rem var(--primary-font);
+  outline: none;
+  box-shadow: 0 0 0 0 0.4rem var(--primary-font);
 }
 
 p {
-	margin: 0;
+  margin: 0;
 }
 
 .btn {
-	padding: 0.6rem .7rem;
+  padding: 0.6rem 0.7rem;
 }
 
 .btn:hover,
 .btn:active {
-	cursor: pointer;
-	background-color: var(--lighter-grey);
-	border-radius: 9px;
+  cursor: pointer;
+  background-color: var(--lighter-grey);
+  border-radius: 9px;
 
-	transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-

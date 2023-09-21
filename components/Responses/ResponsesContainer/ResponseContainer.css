@@ -1,10 +1,10 @@
 .post--comment--responses--user--comment--container {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-	margin-bottom: 1rem;
-    background-color: white;
- /*    position: absolute;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: white;
+  /*    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
@@ -14,12 +14,12 @@
     overflow: hidden; */
 }
 .post--comment--response--container--parraf {
-	color: var(--light-grey);
-	font-size: 1.3rem;
-	margin-left: 1rem;
-	letter-spacing: -0.03rem;
-	line-height: 2;
-	font-weight: 400;
+  color: var(--light-grey);
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  letter-spacing: -0.03rem;
+  line-height: 2;
+  font-weight: 400;
 
-	cursor: pointer;
+  cursor: pointer;
 }

@@ -1,66 +1,65 @@
 .header--nav--container {
-	position: fixed;
-	background-color: #fff;
-	width: 100vw;
-	margin: 0;
-	padding: 0;
-	border-bottom: 1px solid var(--primary-font);
-	/* margin-bottom: 2rem; */
-	/* z-index: 99; */
+  position: fixed;
+  background-color: #fff;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--primary-font);
+  /* margin-bottom: 2rem; */
+  /* z-index: 99; */
 }
 
 .nav {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	margin-inline: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 1rem;
 }
 
 .nav--logo {
-	max-width: 12rem;
-	margin-left: 1rem;
+  max-width: 12rem;
+  margin-left: 1rem;
 }
 
 .nav--buttons--container {
-	display: flex;
-	flex-direction: row;
-	gap: 3rem;
-	
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
 }
 
 .btn--nav {
-	margin-right: 1rem;
-	background-color: white;
-	border: none;
-	font-size: 1.2rem;
-	font-weight: 500;
-	text-transform: uppercase;
+  margin-right: 1rem;
+  background-color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 .headers--auth--modals {
-	position: relative;
+  position: relative;
 }
 
 @media (min-width: 48.12em) {
-	.header--nav--container {
-		position: fixed;
-		width: 10rem;
-		height: 50vh;
-		top: 10px;
-		bottom: 0;
+  .header--nav--container {
+    position: fixed;
+    width: 10rem;
+    height: 50vh;
+    top: 10px;
+    bottom: 0;
 
-		border: none;
-	}
+    border: none;
+  }
 
-	.nav {
-		flex-direction: column;
-		justify-content: center;
-		gap: 3rem;
-		padding: 0 2rem;
-		/* z-index: 99; */
-	}
-	
-	.nav--buttons--container {
-		flex-direction: column;
-	}
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0 2rem;
+    /* z-index: 99; */
+  }
+
+  .nav--buttons--container {
+    flex-direction: column;
+  }
 }
