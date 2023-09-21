@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const API_URL = `${import.meta.env.VITE_API_URL}`;
 
@@ -6,9 +6,7 @@ export function useComment() {
 	const [comments, setComments] = useState([]);
 	const [comment, setComment] = useState(null);
 
-	// console.log(comment)
-
-	const getComments = async ({ postId }) => {
+	const getComments = ({ postId }) => {
 		fetch(`${API_URL}/comment/${postId}`)
 			.then((response) => {
 				if (response.ok) {
@@ -22,7 +20,7 @@ export function useComment() {
 			.catch((err) => console.error(err));
 	};
 
-	const getOneComment = async ({ commentId }) => {
+	const getOneComment = ({ commentId }) => {
 		fetch(`${API_URL}/comment/onecomment/${commentId}`)
 			.then((response) => {
 				if (response.ok) {
@@ -37,7 +35,7 @@ export function useComment() {
 			.catch((err) => console.error(err));
 	};
 
-	const createComment = async ({ username, text, postId, authorId }) => {
+	const createComment = ({ username, text, postId, authorId }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
 
@@ -74,7 +72,7 @@ export function useComment() {
 		};
 	};
 
-	const deleteComment = async ({ commentId, userId, postId }) => {
+	const deleteComment = ({ commentId, postId }) => {
 		const storedToken = localStorage.getItem('authToken');
 
 		const requestOptions = {

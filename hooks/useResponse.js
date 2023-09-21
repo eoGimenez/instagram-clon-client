@@ -1,11 +1,9 @@
 const API_URL = `${import.meta.env.VITE_API_URL}`;
 
 export function useResponse() {
-
 	const createResponse = async ({ text, commentId, userId, username }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
-		console.log('CREANDO');
 
 		const json_string = JSON.stringify({
 			username: username,
@@ -21,15 +19,10 @@ export function useResponse() {
 			}),
 			body: json_string,
 		};
-		fetch(`${API_URL}/response/${commentId}`, requestOptions)
-			.then((response) => {
-				if (response.ok) {
-					return response.json();
-				}
-				throw response;
-			})
-			.then((data) => {})
-			.catch((err) => console.error(err));
+		const response = await fetch(`${API_URL}/response/${commentId}`, requestOptions);
+		if (!response.ok) {
+			alert('Ocurrió un error, intentelo nuevamente');
+		}
 		return () => {
 			isCancelled = true;
 		};
@@ -38,7 +31,7 @@ export function useResponse() {
 	const updateResponse = async ({ text, commentId, userId, username, responseId }) => {
 		let isCancelled = false;
 		const storedToken = localStorage.getItem('authToken');
-
+		console.log('EDITADO');
 		const json_string = JSON.stringify({
 			username: username,
 			text: text,
@@ -54,19 +47,10 @@ export function useResponse() {
 			}),
 			body: json_string,
 		};
-		fetch(`${API_URL}/response/${responseId}`, requestOptions)
-			.then((response) => {
-				if (response.ok) {
-					return response.json();
-				}
-				throw response;
-			})
-			.then((data) => {
-				if (!isCancelled) {
-					console.log('Editado correctamente');
-				}
-			})
-			.catch((err) => console.error(err));
+		const response = await fetch(`${API_URL}/response/${responseId}`, requestOptions);
+		if (!response.ok || isCancelled) {
+			alert('Ocurrió un error, intentelo nuevamente');
+		}
 		return () => {
 			isCancelled = true;
 		};
@@ -83,19 +67,10 @@ export function useResponse() {
 			}),
 		};
 
-		fetch(`${API_URL}/response/${responseId}`, requestOptions)
-			.then((response) => {
-				if (response.ok) {
-					return response.json();
-				}
-				throw response;
-			})
-			.then((data) => {
-				if (!isCancelled) {
-					console.log('Eliminado correctamente');
-				}
-			})
-			.catch((err) => console.error(err));
+		const response = await fetch(`${API_URL}/response/${responseId}`, requestOptions);
+		if (!response.ok || isCancelled) {
+			alert('Ocurrió un error, intentelo nuevamente');
+		}
 
 		return () => {
 			isCancelled = true;

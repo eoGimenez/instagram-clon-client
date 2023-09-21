@@ -61,7 +61,6 @@ export default function PostComment({ postId }) {
 										onClick={() => {
 											deleteComment({
 												commentId: comment.id,
-												userId: comment.author_comment.id,
 												postId: postId,
 											});
 										}}
