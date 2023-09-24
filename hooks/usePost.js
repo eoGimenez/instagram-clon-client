@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 const API_URL = `${import.meta.env.VITE_API_URL}`;
-console.log(API_URL);
 export function usePost({ limit = 5 } = {}) {
   const [posts, setPosts] = useState([]);
   const [userPosts, setUserPosts] = useState([]);

@@ -40,7 +40,7 @@ export function useResponse() {
   }) => {
     let isCancelled = false;
     const storedToken = localStorage.getItem('authToken');
-    console.log('EDITADO');
+
     const json_string = JSON.stringify({
       username: username,
       text: text,
