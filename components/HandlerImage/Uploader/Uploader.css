@@ -1,17 +1,16 @@
-.section--uploader--img {
-  margin-inline: auto;
-  margin-top: 10rem;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-}
-
 .uploader--container {
   padding: 1rem 3rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.section--uploader--img {
+  margin-inline: auto;
+  margin-top: 10rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
 }
 
 .uploader--container > h1 {

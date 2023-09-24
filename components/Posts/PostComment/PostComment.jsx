@@ -44,15 +44,15 @@ export default function PostComment({ postId }) {
                 </p>
               </div>
               <div className='comment--container--options'>
-                {
-                  (comment.responses.length ? (
-                    <p
-                      onClick={() => {
-                        handleResponses({ commentId: comment.id });
-                      }}
-                      className='response--parraf'
-                    >{`Leer respuetas (${comment.responses.length})`}</p>
-                  ) : user && ( 
+                {comment.responses.length ? (
+                  <p
+                    onClick={() => {
+                      handleResponses({ commentId: comment.id });
+                    }}
+                    className='response--parraf'
+                  >{`Leer respuetas (${comment.responses.length})`}</p>
+                ) : (
+                  user && (
                     <p
                       className='response--parraf'
                       onClick={() => {
@@ -61,7 +61,8 @@ export default function PostComment({ postId }) {
                     >
                       Responder...
                     </p>
-                  ))}
+                  )
+                )}
                 {user && comment.author_comment.id == user.id && (
                   <p
                     onClick={() => {

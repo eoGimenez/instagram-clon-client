@@ -89,7 +89,6 @@
   right: 0;
   transform: translateY(110%);
 
-  z-index: -10;
   opacity: 0;
   visibility: hidden;
 
@@ -116,7 +115,6 @@
 
   opacity: 1;
   visibility: visible;
-  z-index: 4;
 
   object-fit: fill;
   overflow-y: auto;
