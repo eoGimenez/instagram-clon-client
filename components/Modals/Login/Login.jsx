@@ -13,12 +13,17 @@ export default function Login({ isTrue, switchingSignup }) {
   return (
     <>
       <div className={`modal--login--container--${isTrue}`}>
-        <img
-          src='https://cdn.icon-icons.com/icons2/2699/PNG/512/instagram_logo_icon_170643.png'
-          alt='Instagram logo'
-          className='modal--logo'
-        />
-        {errorMessage ? <p className='modal--login--errormessage'>{errorMessage}</p> : null}
+        <div className='modal--logo--container'>
+          <img
+            src='https://res.cloudinary.com/dbld4vcec/image/upload/v1695676263/brand-instagram_cpvqmp.png'
+            alt='Instagram logo'
+            className='modal--logo'
+          />
+          <p>InstaAPP</p>
+        </div>
+        {errorMessage ? (
+          <p className='modal--login--errormessage'>{errorMessage}</p>
+        ) : null}
         <form onSubmit={handleLogin} className='modal--login--form'>
           <fieldset>
             <input {...username} placeholder='Username' required />

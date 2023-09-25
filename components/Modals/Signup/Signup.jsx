@@ -18,11 +18,14 @@ export default function Signup({ isTrueSign, switchingGeneric }) {
 
   return (
     <div className={`modal--signup--container--${isTrueSign}`}>
-      <img
-        src='https://cdn.icon-icons.com/icons2/2699/PNG/512/instagram_logo_icon_170643.png'
-        alt='Instagram logo'
-        className='modal--logo'
-      />
+      <div className='modal--logo--container'>
+        <img
+          src='https://res.cloudinary.com/dbld4vcec/image/upload/v1695676263/brand-instagram_cpvqmp.png'
+          alt='Instagram logo'
+          className='modal--logo'
+        />
+        <p>InstaAPP</p>
+      </div>
       {errorMessage ? (
         <p className='modal--signup--errormessage'>{errorMessage}</p>
       ) : null}

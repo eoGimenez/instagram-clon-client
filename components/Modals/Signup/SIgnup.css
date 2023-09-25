@@ -21,10 +21,23 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
+.modal--logo--container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+}
+.modal--logo--container p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-darker);
+  letter-spacing: -0.03rem;
+}
+
 .modal--logo {
-  justify-self: center;
-  align-self: center;
-  max-width: 12rem;
+  justify-self: start;
+  margin-left: 4rem;
+  max-width: 6rem;
 }
 
 .modal--signup--form {
