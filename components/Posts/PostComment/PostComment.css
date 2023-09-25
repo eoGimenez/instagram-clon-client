@@ -69,6 +69,7 @@
   right: 0;
   top: 0;
   transform: translateY(0%);
+  height: 15rem;
 
   object-fit: fill;
   overflow-y: auto;
@@ -79,6 +80,10 @@
 .post--comment--response--container--true:last-child {
   border-bottom: 1px solid var(--lighter-grey);
   margin-bottom: 1rem;
+}
+
+.post--comment--response--container--parraf {
+  margin-top: 1rem;
 }
 
 .post--comment--response--container {

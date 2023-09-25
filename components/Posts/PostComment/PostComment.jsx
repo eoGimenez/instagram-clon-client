@@ -101,7 +101,7 @@ export default function PostComment({ postId }) {
         ) : null}
       </div>
       <div className='postcard--container--new--comment'>
-        {user ? (
+        {!isTrue && user ? (
           <NewComment
             user={user}
             postId={postId}
