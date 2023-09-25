@@ -1,14 +1,15 @@
-import React, { Fragment } from 'react';
 import { useContext } from 'react';
 import { useSwitch } from '../../hooks/useSwitch';
 import Login from '../Modals/Login/Login';
 import Signup from '../Modals/Signup/Signup';
 import './Nav.css';
 import { AuthContext } from '../../context/auth.context';
+import { useNavigate } from 'react-router-dom';
 
 export default function Nav() {
   const { isTrue, switchingGeneric, isTrueSign, switchingSignup } = useSwitch();
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // Pensar en como bloquear el scroll para que cuando cualqueir modal este activo,
   // no se puedan mover por la app
@@ -19,7 +20,7 @@ export default function Nav() {
   return (
     <header className='header--nav--container'>
       <nav className='nav'>
-        <p>
+        <p onClick={() => navigate('/')}>
           <ion-icon name='logo-instagram'></ion-icon>
         </p>
         {/* <img

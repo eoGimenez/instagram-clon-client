@@ -4,11 +4,13 @@ import './PostCard.css';
 import { AuthContext } from '../../../context/auth.context';
 import { useDelete } from '../../../hooks/useDelete';
 import { useSwitch } from '../../../hooks/useSwitch';
+import { useNavigate } from 'react-router-dom';
 
 export default function PostCard({ post }) {
   const { user } = useContext(AuthContext);
   const { deletePost } = useDelete();
   const { isTrue, switchingGeneric } = useSwitch();
+  const navigate = useNavigate()
 
   const handleDelete = () => {
     deletePost({ postId: post.id });
@@ -23,7 +25,13 @@ export default function PostCard({ post }) {
             alt={`The avatar of the user: ${post.author.username}`}
             className='post--card--author--avatar'
           />
-          <h3 className='post--card--author'>{post.author.username}</h3>
+          <h3 className='post--card--author'
+          onClick={() => {
+            navigate(`/${post.author.id}`)
+          }}
+          >
+          {post.author.username}
+          </h3>
           {user?.id === post.author.id ? (
             <button
               className='post--card--header--btn--delete'
