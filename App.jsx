@@ -7,9 +7,13 @@ import Profile from './Pages/Profile/Profile';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import PostDetail from './Pages/PostDetail/PostDetail';
 import { useSwitch } from './hooks/useSwitch';
+import { useEffect } from 'react';
 
 export default function App() {
   const { isTrue, switchingGeneric } = useSwitch();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -59,8 +63,7 @@ export default function App() {
               está de acuerdo con estos términos, le recomendamos que abandone
               la plataforma de inmediato.
               <br />
-              ¡Disfrute de su experiencia educativa en esta red social
-              ficticia!
+              ¡Disfrute de su experiencia educativa en esta red social ficticia!
             </p>
           </div>
         </div>
