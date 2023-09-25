@@ -85,4 +85,5 @@
 .modal--signup--form span {
   color: blue;
   border-bottom: 0.1px solid blue;
+  cursor: pointer;
 }
