@@ -59,7 +59,8 @@ export function useVerify() {
 
 export function useAuth({ password, username }) {
   const { verify, storeToken } = useContext(AuthContext);
-
+  const [errorMessage, setErrorMessage] = useState();
+  
   const handleLogin = (e) => {
     e.preventDefault();
     let scopes = ['me', 'post'];
@@ -84,18 +85,35 @@ export function useAuth({ password, username }) {
         storeToken(data.access_token);
         verify();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setErrorMessage('Credenciales invalidas'));
   };
 
-  return { handleLogin };
+  return { handleLogin, errorMessage };
 }
 
 export function useSignup({ username, password, rePassword, email }) {
   const [userCreated, setUserCreated] = useState();
   const { verify, storeToken } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState();
 
   const signUp = (e) => {
     e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage('Ingrese un formato de email valido');
+      return;
+    }
+
+    if (password !== rePassword) {
+      setErrorMessage('Las contraseñas no coinciden');
+      return;
+    }
+    const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+    if (!passwordRegex.test(password)) {
+      setErrorMessage('Contraseña no segura');
+      return;
+    }
 
     const json_string = JSON.stringify({
       username: username,
@@ -158,5 +176,5 @@ export function useSignup({ username, password, rePassword, email }) {
     };
   }, [userCreated]);
 
-  return { signUp };
+  return { signUp, errorMessage };
 }

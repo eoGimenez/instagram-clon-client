@@ -47,8 +47,8 @@ export default function Nav() {
       </nav>
 
       <div className='headers--auth--modals'>
-        {isTrue && !isLoggedIn && <Login isTrue={isTrue} />}
-        {isTrueSign && !isLoggedIn && <Signup isTrueSign={isTrueSign} />}
+        {isTrue && !isLoggedIn && <Login isTrue={isTrue} switchingSignup={switchingSignup} />}
+        {isTrueSign && !isLoggedIn && <Signup isTrueSign={isTrueSign} switchingGeneric={switchingGeneric} />}
       </div>
     </header>
   );

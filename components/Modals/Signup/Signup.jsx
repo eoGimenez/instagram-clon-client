@@ -3,13 +3,13 @@ import { useField } from '../../../hooks/useField';
 
 import './SIgnup.css';
 
-export default function Signup({ isTrueSign }) {
+export default function Signup({ isTrueSign, switchingGeneric }) {
   const username = useField({ type: 'text', field: '' });
   const email = useField({ type: 'text', field: '' });
   const password = useField({ type: 'password', field: '' });
   const rePassword = useField({ type: 'password', field: '' });
 
-  const { signUp } = useSignup({
+  const { signUp, errorMessage } = useSignup({
     username: username.value,
     password: password.value,
     rePassword: rePassword.value,
@@ -23,6 +23,9 @@ export default function Signup({ isTrueSign }) {
         alt='Instagram logo'
         className='modal--logo'
       />
+      {errorMessage ? (
+        <p className='modal--signup--errormessage'>{errorMessage}</p>
+      ) : null}
       <form onSubmit={signUp} className='modal--signup--form'>
         <fieldset>
           <input {...username} placeholder='Username' required />
@@ -38,7 +41,7 @@ export default function Signup({ isTrueSign }) {
         </fieldset>
         <button>Registrar cuenta</button>
         <p className='modal--parraf'>
-          Ya tienes cuenta ? <span>Conectate!</span>
+          Ya tienes cuenta ? <span onClick={switchingGeneric}>Conectate!</span>
         </p>
       </form>
     </div>
