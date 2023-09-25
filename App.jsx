@@ -23,7 +23,7 @@ export default function App() {
               incluidos son completamente ficticios y se han creado con el
               objetivo de proporcionar un entorno de aprendizaje simulado.
               Cualquier semejanza con situaciones, personas o eventos reales es
-              puramente coincidencial.
+              puramente coincidencia.
               <br />
               1. Esta red social se ha creado exclusivamente para presentar y
               demostrar el proyecto que he desarrollado. Por lo tanto, su uso
